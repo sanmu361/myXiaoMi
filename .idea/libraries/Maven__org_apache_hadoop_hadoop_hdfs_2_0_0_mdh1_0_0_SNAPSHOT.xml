@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.apache.hadoop:hadoop-hdfs:2.0.0-mdh1.0.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/hadoop/hadoop-hdfs/2.0.0-mdh1.0.0-SNAPSHOT/hadoop-hdfs-2.0.0-mdh1.0.0-20131122.031638-2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/hadoop/hadoop-hdfs/2.0.0-mdh1.0.0-SNAPSHOT/hadoop-hdfs-2.0.0-mdh1.0.0-20131122.031638-2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/hadoop/hadoop-hdfs/2.0.0-mdh1.0.0-SNAPSHOT/hadoop-hdfs-2.0.0-mdh1.0.0-20131122.031638-2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
