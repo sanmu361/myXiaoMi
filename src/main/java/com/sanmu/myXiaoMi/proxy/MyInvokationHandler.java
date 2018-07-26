@@ -11,8 +11,9 @@ import java.lang.reflect.Method;
  **/
 public class MyInvokationHandler implements InvocationHandler {
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        System.out.println("----正在执行该方法是传入的实参：");
+        System.out.println("----正在执行该方法是"+ method.getName());
         if(args != null){
+            System.out.println("----传入的实参：");
             for(Object val : args){
                 System.out.println(val);
             }

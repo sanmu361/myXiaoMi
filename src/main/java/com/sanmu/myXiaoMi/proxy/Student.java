@@ -6,7 +6,7 @@ package com.sanmu.myXiaoMi.proxy;
  * @author yansen
  * @create 2017-07-31 14:22
  **/
-public class Student implements Person {
+public class Student {
     public void walk() {
         System.out.println("Student walk");
     }

@@ -15,17 +15,29 @@ public class ProxyTest {
         InvocationHandler handler = new MyInvokationHandler();
 
 
-        Person p = (Person) Proxy.newProxyInstance(Person.class.getClassLoader(),new Class[]{Person.class},handler);
+
+
+//或更简单
+//        Person f = (Person) Proxy.newProxyInstance(Person.class.getClassLoader(),
+//                new Class[] { Person.class },
+//                handler);
+//
+//
+//        f.walk();
+
+        Person p = (Person) Proxy.newProxyInstance(Person.class.getClassLoader(),
+                new Class[]{Person.class}
+                ,handler);
 
         p.walk();
 
-        p.sayHell("Test");
+//        p.sayHell("Test");
 
 
-        p = (Person)Proxy.newProxyInstance(Student.class.getClassLoader(),new Class[]{Person.class},handler);
-
-        p.walk();
-
-        p.sayHell("yansen");
+//        p = (Person)Proxy.newProxyInstance(Student.class.getClassLoader(),new Class[]{Person.class},handler);
+//
+//        p.walk();
+//
+//        p.sayHell("yansen");
     }
 }
