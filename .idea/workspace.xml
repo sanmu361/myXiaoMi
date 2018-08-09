@@ -5,38 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd69793b-424a-487b-b567-e2d914c8f708" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_3_10_5_Final.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/sanmu/myXiaoMi/XssShieldUtil.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/sanmu/myXiaoMi/proxy/example/MyInvokationHandler.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/sanmu/myXiaoMi/proxy/example/Person.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/sanmu/myXiaoMi/proxy/example/ProxyTest.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/sanmu/myXiaoMi/zookeeper/barrier/DistributedBarrierExample.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/sanmu/myXiaoMi/zookeeper/barrier/DistributedDoubleBarrierExample.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/sanmu/myXiaoMi/zookeeper/cache/NodeCacheExample.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/sanmu/myXiaoMi/zookeeper/cache/TreeCacheExample.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/sanmu/myXiaoMi/zookeeper/conter/DistributedAtomicLongExample.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/sanmu/myXiaoMi/zookeeper/conter/SharedCounterExample.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/sanmu/myXiaoMi/zookeeper/leader/LeaderLatchExample.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/sanmu/myXiaoMi/zookeeper/leader/LeaderSelectorExample.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/sanmu/myXiaoMi/zookeeper/lock/InterProcessMultiLockExample.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/sanmu/myXiaoMi/zookeeper/lock/InterProcessMutexExample.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/sanmu/myXiaoMi/zookeeper/lock/InterProcessReadWriteLockExample.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/sanmu/myXiaoMi/zookeeper/lock/InterProcessSemaphoreMutexExample.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/sanmu/myXiaoMi/zookeeper/lock/SemaphoreExample.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/sanmu/myXiaoMi/zookeeper/persistentEphemeralNode/persistentEphemeralNodeExample.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/sanmu/myXiaoMi/zookeeper/queue/DirtributedPriorityQueueExample.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/sanmu/myXiaoMi/zookeeper/queue/DistributedDelayQueueExample.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/sanmu/myXiaoMi/zookeeper/queue/DistributedIdQueueExample.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/sanmu/myXiaoMi/zookeeper/queue/DistributedQueueExample.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/sanmu/myXiaoMi/zookeeper/queue/SimpleDistributedQueueExample.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_zookeeper_zookeeper_3_4_4_mdh1_0_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_zookeeper_zookeeper_3_4_9.xml" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/myXiaoMi.iml" afterPath="$PROJECT_DIR$/myXiaoMi.iml" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sanmu/myXiaoMi/zookeeper/ClientTest.java" afterPath="$PROJECT_DIR$/src/main/java/com/sanmu/myXiaoMi/zookeeper/ClientTest.java" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/sanmu/myXiaoMi/zookeeper/ClientTest.class" afterPath="$PROJECT_DIR$/target/classes/com/sanmu/myXiaoMi/zookeeper/ClientTest.class" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -78,19 +48,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LeaderLatchExample.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sanmu/myXiaoMi/zookeeper/leader/LeaderLatchExample.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="819">
-              <caret line="57" column="31" lean-forward="true" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InterProcessMutexExample.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="InterProcessMutexExample.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sanmu/myXiaoMi/zookeeper/lock/InterProcessMutexExample.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="939">
@@ -100,6 +58,16 @@
                 <element signature="e#1149#2129#0" expanded="true" />
                 <element signature="e#2128#2129#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -271,7 +239,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/sanmu/myXiaoMi/netty/serializer/KryoReflectionFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sanmu/myXiaoMi/netty/serializer/ResponseSerializer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sanmu/myXiaoMi/XssShieldUtil.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/sanmu/myXiaoMi/zookeeper/ClientTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sanmu/myXiaoMi/zookeeper/cache/NodeCacheExample.java" />
@@ -293,6 +260,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/sanmu/myXiaoMi/zookeeper/lock/InterProcessReadWriteLockExample.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sanmu/myXiaoMi/zookeeper/lock/SemaphoreExample.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sanmu/myXiaoMi/zookeeper/lock/InterProcessMultiLockExample.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -1433,7 +1401,7 @@
       <workItem from="1533089461015" duration="4698000" />
       <workItem from="1533176159590" duration="585000" />
       <workItem from="1533290608203" duration="72000" />
-      <workItem from="1533799859416" duration="11477000" />
+      <workItem from="1533799859416" duration="11536000" />
     </task>
     <task id="LOCAL-00001" summary="dubbo提交">
       <created>1532597938298</created>
@@ -1442,7 +1410,14 @@
       <option name="project" value="LOCAL" />
       <updated>1532597938298</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="zookeeper功能提交">
+      <created>1533815559053</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1533815559053</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1454,7 +1429,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="465093000" />
+    <option name="totallyTimeSpent" value="465152000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1088" y="-685" width="1096" height="1936" extended-state="6" />
@@ -1507,7 +1482,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="dubbo提交" />
-    <option name="LAST_COMMIT_MESSAGE" value="dubbo提交" />
+    <MESSAGE value="zookeeper功能提交" />
+    <option name="LAST_COMMIT_MESSAGE" value="zookeeper功能提交" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1685,14 +1661,6 @@
             <element signature="e#380#381#0" expanded="false" />
             <element signature="e#404#405#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2094,6 +2062,14 @@
             <element signature="e#1149#2129#0" expanded="true" />
             <element signature="e#2128#2129#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
