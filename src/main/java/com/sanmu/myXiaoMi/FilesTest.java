@@ -10,11 +10,14 @@ import com.google.common.io.Files;
 import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
+import org.apache.commons.lang3.CharSet;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.charset.Charset;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -27,974 +30,133 @@ import java.util.Set;
  **/
 public class FilesTest {
     public static void main(String[] args) throws IOException {
-        File newFile = new File("D:\\文档\\josn1.txt");
-        List<String> list = Files.readLines(newFile,Charsets.UTF_8);
+        File newFile = new File("D:\\文档\\materials.txt");
+        List<String> list = Files.readLines(newFile, Charset.forName("GB2312"));
 
-        String a = "1312\n" +
-                "1374\n" +
-                "1402\n" +
-                "1450\n" +
-                "1791\n" +
-                "1847\n" +
-                "2326\n" +
-                "4136\n" +
-                "4286\n" +
-                "4584\n" +
-                "4908\n" +
-                "5010\n" +
-                "5386\n" +
-                "5610\n" +
-                "5643\n" +
-                "5726\n" +
-                "5851\n" +
-                "6027\n" +
-                "6029\n" +
-                "6044\n" +
-                "6163\n" +
-                "6202\n" +
-                "6353\n" +
-                "6664\n" +
-                "6816\n" +
-                "7038\n" +
-                "7077\n" +
-                "7428\n" +
-                "7471\n" +
-                "7597\n" +
-                "7832\n" +
-                "8340\n" +
-                "8374\n" +
-                "8419\n" +
-                "8420\n" +
-                "8591\n" +
-                "8592\n" +
-                "8593\n" +
-                "8594\n" +
-                "8595\n" +
-                "8606\n" +
-                "8811\n" +
-                "8913\n" +
-                "9052\n" +
-                "9056\n" +
-                "9064\n" +
-                "9067\n" +
-                "9346\n" +
-                "9391\n" +
-                "9493\n" +
-                "9495\n" +
-                "9525\n" +
-                "9598\n" +
-                "9632\n" +
-                "9834\n" +
-                "10003\n" +
-                "10037\n" +
-                "10186\n" +
-                "10187\n" +
-                "10243\n" +
-                "10244\n" +
-                "10290\n" +
-                "10295\n" +
-                "10309\n" +
-                "10485\n" +
-                "10508\n" +
-                "10511\n" +
-                "10687\n" +
-                "10701\n" +
-                "10852\n" +
-                "10853\n" +
-                "10894\n" +
-                "10895\n" +
-                "10896\n" +
-                "10897\n" +
-                "10930\n" +
-                "10935\n" +
-                "10958\n" +
-                "10959\n" +
-                "11099\n" +
-                "11102\n" +
-                "11154\n" +
-                "11169\n" +
-                "11170\n" +
-                "11171\n" +
-                "11176\n" +
-                "11184\n" +
-                "11219\n" +
-                "11221\n" +
-                "11224\n" +
-                "11271\n" +
-                "11272\n" +
-                "11273\n" +
-                "11274\n" +
-                "11276\n" +
-                "11277\n" +
-                "11278\n" +
-                "11319\n" +
-                "11338\n" +
-                "11339\n" +
-                "11340\n" +
-                "11341\n" +
-                "11342\n" +
-                "11348\n" +
-                "11351\n" +
-                "11354\n" +
-                "11389\n" +
-                "11407\n" +
-                "11514\n" +
-                "11515\n" +
-                "11516\n" +
-                "11517\n" +
-                "11552\n" +
-                "11566\n" +
-                "11569\n" +
-                "11615\n" +
-                "11616\n" +
-                "11617\n" +
-                "11618\n" +
-                "11693\n" +
-                "11694\n" +
-                "11707\n" +
-                "11710\n" +
-                "11803\n" +
-                "11855\n" +
-                "11860\n" +
-                "11863\n" +
-                "11864\n" +
-                "11869\n" +
-                "11870\n" +
-                "11871\n" +
-                "11872\n" +
-                "11885\n" +
-                "11890\n" +
-                "11892\n" +
-                "11893\n" +
-                "11894\n" +
-                "11951\n" +
-                "11956\n" +
-                "11957\n" +
-                "11958\n" +
-                "11960\n" +
-                "11961\n" +
-                "11962\n" +
-                "11963\n" +
-                "11964\n" +
-                "11967\n" +
-                "11970\n" +
-                "11973\n" +
-                "11974\n" +
-                "11990\n" +
-                "11991\n" +
-                "11998\n" +
-                "11999\n" +
-                "12013\n" +
-                "12047\n" +
-                "12072\n" +
-                "12073\n" +
-                "12074\n" +
-                "12078\n" +
-                "12093\n" +
-                "12094\n" +
-                "12098\n" +
-                "12129\n" +
-                "12133\n" +
-                "12140\n" +
-                "12203\n" +
-                "12204\n" +
-                "12256\n" +
-                "12266\n" +
-                "12272\n" +
-                "12275\n" +
-                "12280\n" +
-                "12281\n" +
-                "12282\n" +
-                "12284\n" +
-                "12332\n" +
-                "12334\n" +
-                "12336\n" +
-                "12338\n" +
-                "12339\n" +
-                "12359\n" +
-                "12361\n" +
-                "12373\n" +
-                "12375\n" +
-                "12376\n" +
-                "12377\n" +
-                "12378\n" +
-                "12381\n" +
-                "12389\n" +
-                "12400\n" +
-                "12530\n" +
-                "12539\n" +
-                "12556\n" +
-                "12561\n" +
-                "12566\n" +
-                "12569\n" +
-                "12573\n" +
-                "12609\n" +
-                "12619\n" +
-                "12620\n" +
-                "12621\n" +
-                "12622\n" +
-                "12654\n" +
-                "12655\n" +
-                "12656\n" +
-                "12657\n" +
-                "12658\n" +
-                "12666\n" +
-                "12667\n" +
-                "12668\n" +
-                "12669\n" +
-                "12671\n" +
-                "12693\n" +
-                "12694\n" +
-                "12695\n" +
-                "12765\n" +
-                "12766\n" +
-                "12769\n" +
-                "12770\n" +
-                "12785\n" +
-                "12786\n" +
-                "12789\n" +
-                "12791\n" +
-                "12792\n" +
-                "12800\n" +
-                "12801\n" +
-                "12853\n" +
-                "12867\n" +
-                "12868\n" +
-                "12869\n" +
-                "12870\n" +
-                "12871\n" +
-                "12894\n" +
-                "12907\n" +
-                "12908\n" +
-                "12912\n" +
-                "12926\n" +
-                "12927\n" +
-                "12937\n" +
-                "12939\n" +
-                "12941\n" +
-                "12943\n" +
-                "12973\n" +
-                "12994\n" +
-                "13015\n" +
-                "13018\n" +
-                "13031\n" +
-                "13034\n" +
-                "13035\n" +
-                "13036\n" +
-                "13071\n" +
-                "13079\n" +
-                "13080\n" +
-                "13085\n" +
-                "13086\n" +
-                "13087\n" +
-                "13088\n" +
-                "13089\n" +
-                "13108\n" +
-                "13110\n" +
-                "13111\n" +
-                "13113\n" +
-                "13114\n" +
-                "13135\n" +
-                "13136\n" +
-                "13138\n" +
-                "13140\n" +
-                "13159\n" +
-                "13160\n" +
-                "13161\n" +
-                "13169\n" +
-                "13170\n" +
-                "13178\n" +
-                "13179\n" +
-                "13182\n" +
-                "13183\n" +
-                "13184\n" +
-                "13185\n" +
-                "13186\n" +
-                "13194\n" +
-                "13195\n" +
-                "13220\n" +
-                "13222\n" +
-                "13224\n" +
-                "13228\n" +
-                "13229\n" +
-                "13232\n" +
-                "13233\n" +
-                "13245\n" +
-                "13285\n" +
-                "13293\n" +
-                "13294\n" +
-                "13299\n" +
-                "13341\n" +
-                "13383\n" +
-                "13384\n" +
-                "13385\n" +
-                "13400\n" +
-                "13401\n" +
-                "13402\n" +
-                "13415\n" +
-                "13416\n" +
-                "13417\n" +
-                "13474\n" +
-                "13475\n" +
-                "13476\n" +
-                "13477\n" +
-                "13592\n" +
-                "13593\n" +
-                "13594\n" +
-                "13595\n" +
-                "13596\n" +
-                "13597\n" +
-                "13638\n" +
-                "13639\n" +
-                "13640\n" +
-                "13646\n" +
-                "13648\n" +
-                "13666\n" +
-                "13670\n" +
-                "13671\n" +
-                "13673\n" +
-                "13674\n" +
-                "13675\n" +
-                "13676\n" +
-                "13677\n" +
-                "13678\n" +
-                "13679\n" +
-                "13718\n" +
-                "13719\n" +
-                "13722\n" +
-                "13740\n" +
-                "13746\n" +
-                "13759\n" +
-                "13779\n" +
-                "13785\n" +
-                "13791\n" +
-                "13793\n" +
-                "13806\n" +
-                "13807\n" +
-                "13808\n" +
-                "13815\n" +
-                "13816\n" +
-                "13817\n" +
-                "13819\n" +
-                "13824\n" +
-                "13825\n" +
-                "13828\n" +
-                "13833\n" +
-                "13837\n" +
-                "13842\n" +
-                "13843\n" +
-                "13847\n" +
-                "13849\n" +
-                "13854\n" +
-                "13862\n" +
-                "13863\n" +
-                "13865\n" +
-                "13866\n" +
-                "13867\n" +
-                "13871\n" +
-                "13872\n" +
-                "13873\n" +
-                "13874\n" +
-                "13882\n" +
-                "13883\n" +
-                "13884\n" +
-                "13886\n" +
-                "13893\n" +
-                "13894\n" +
-                "13899\n" +
-                "13900\n" +
-                "13901\n" +
-                "13902\n" +
-                "13903\n" +
-                "13904\n" +
-                "13905\n" +
-                "13906\n" +
-                "13907\n" +
-                "13908\n" +
-                "13910\n" +
-                "13911\n" +
-                "13917\n" +
-                "13918\n" +
-                "13920\n" +
-                "13925\n" +
-                "13960\n" +
-                "13961\n" +
-                "14016\n" +
-                "14017\n" +
-                "14018\n" +
-                "14027\n" +
-                "14068\n" +
-                "14070\n" +
-                "14072\n" +
-                "14074\n" +
-                "14075\n" +
-                "14076\n" +
-                "14077\n" +
-                "14078\n" +
-                "14079\n" +
-                "14083\n" +
-                "14100\n" +
-                "14104\n" +
-                "14105\n" +
-                "14107\n" +
-                "14108\n" +
-                "14115\n" +
-                "14116\n" +
-                "14120\n" +
-                "14121\n" +
-                "14122\n" +
-                "14132\n" +
-                "14138\n" +
-                "14139\n" +
-                "14147\n" +
-                "14148\n" +
-                "14149\n" +
-                "14173\n" +
-                "14174\n" +
-                "14175\n" +
-                "14177\n" +
-                "14178\n" +
-                "14180\n" +
-                "14191\n" +
-                "14196\n" +
-                "14198\n" +
-                "14199\n" +
-                "14228\n" +
-                "14259\n" +
-                "14261\n" +
-                "14262\n" +
-                "14264\n" +
-                "14266\n" +
-                "14267\n" +
-                "14270\n" +
-                "14272\n" +
-                "14273\n" +
-                "14274\n" +
-                "14275\n" +
-                "14276\n" +
-                "14277\n" +
-                "14293\n" +
-                "14300\n" +
-                "14302\n" +
-                "14303\n" +
-                "14309\n" +
-                "14313\n" +
-                "14315\n" +
-                "14318\n" +
-                "14323\n" +
-                "14324\n" +
-                "14348\n" +
-                "14349\n" +
-                "14350\n" +
-                "14357\n" +
-                "14358\n" +
-                "14359\n" +
-                "14361\n" +
-                "14365\n" +
-                "14366\n" +
-                "14367\n" +
-                "14408\n" +
-                "14409\n" +
-                "14411\n" +
-                "14422\n" +
-                "14423\n" +
-                "14425\n" +
-                "14427\n" +
-                "14428\n" +
-                "14429\n" +
-                "14436\n" +
-                "14439\n" +
-                "14463\n" +
-                "14464\n" +
-                "14465\n" +
-                "14472\n" +
-                "14473\n" +
-                "14474\n" +
-                "14475\n" +
-                "14476\n" +
-                "14477\n" +
-                "14479\n" +
-                "14484\n" +
-                "14485\n" +
-                "14488\n" +
-                "14489\n" +
-                "14499\n" +
-                "14507\n" +
-                "14548\n" +
-                "14588\n" +
-                "14590\n" +
-                "14592\n" +
-                "14597\n" +
-                "14600\n" +
-                "14611\n" +
-                "14612\n" +
-                "14613\n" +
-                "14615\n" +
-                "14616\n" +
-                "14617\n" +
-                "14618\n" +
-                "14620\n" +
-                "14621\n" +
-                "14622\n" +
-                "14623\n" +
-                "14624\n" +
-                "14625\n" +
-                "14627\n" +
-                "14629\n" +
-                "14630\n" +
-                "14650\n" +
-                "14664\n" +
-                "14665\n" +
-                "14666\n" +
-                "14682\n" +
-                "14683\n" +
-                "14684\n" +
-                "14687\n" +
-                "14692\n" +
-                "14698\n" +
-                "14700\n" +
-                "14706\n" +
-                "14708\n" +
-                "14709\n" +
-                "14711\n" +
-                "14712\n" +
-                "14713\n" +
-                "14714\n" +
-                "14715\n" +
-                "14720\n" +
-                "14757\n" +
-                "14758\n" +
-                "14759\n" +
-                "14769\n" +
-                "14770\n" +
-                "14771\n" +
-                "14772\n" +
-                "14805\n" +
-                "14824\n" +
-                "14885\n" +
-                "14891\n" +
-                "14892\n" +
-                "14894\n" +
-                "14896\n" +
-                "14897\n" +
-                "14910\n" +
-                "14911\n" +
-                "14917\n" +
-                "14918\n" +
-                "14927\n" +
-                "14928\n" +
-                "14929\n" +
-                "14930\n" +
-                "14931\n" +
-                "14932\n" +
-                "14933\n" +
-                "14936\n" +
-                "14939\n" +
-                "14940\n" +
-                "14947\n" +
-                "14948\n" +
-                "14949\n" +
-                "14950\n" +
-                "14951\n" +
-                "14955\n" +
-                "14956\n" +
-                "14957\n" +
-                "14985\n" +
-                "15071\n" +
-                "15083\n" +
-                "15086\n" +
-                "15088\n" +
-                "15092\n" +
-                "15097\n" +
-                "15098\n" +
-                "15125\n" +
-                "15183\n" +
-                "15240\n" +
-                "15241\n" +
-                "15242\n" +
-                "15264\n" +
-                "15268\n" +
-                "15273\n" +
-                "15274\n" +
-                "15275\n" +
-                "15276\n" +
-                "15277\n" +
-                "15279\n" +
-                "15280\n" +
-                "15283\n" +
-                "15286\n" +
-                "15291\n" +
-                "15312\n" +
-                "15313\n" +
-                "15314\n" +
-                "15326\n" +
-                "15327\n" +
-                "15328\n" +
-                "15329\n" +
-                "15348\n" +
-                "15349\n" +
-                "15350\n" +
-                "15357\n" +
-                "15358\n" +
-                "15364\n" +
-                "15366\n" +
-                "15396\n" +
-                "15409\n" +
-                "15410\n" +
-                "15418\n" +
-                "15445\n" +
-                "15446\n" +
-                "15447\n" +
-                "15460\n" +
-                "15461\n" +
-                "15462\n" +
-                "15466\n" +
-                "15468\n" +
-                "15477\n" +
-                "15493\n" +
-                "15494\n" +
-                "15496\n" +
-                "15501\n" +
-                "15508\n" +
-                "15510\n" +
-                "15521\n" +
-                "15527\n" +
-                "15528\n" +
-                "15530\n" +
-                "15540\n" +
-                "15559\n" +
-                "15561\n" +
-                "15563\n" +
-                "15569\n" +
-                "15570\n" +
-                "15572\n" +
-                "15575\n" +
-                "15576\n" +
-                "15588\n" +
-                "15589\n" +
-                "15590\n" +
-                "15591\n" +
-                "15592\n" +
-                "15595\n" +
-                "15596\n" +
-                "15599\n" +
-                "15600\n" +
-                "15614\n" +
-                "15622\n" +
-                "15627\n" +
-                "15628\n" +
-                "15629\n" +
-                "15630\n" +
-                "15631\n" +
-                "15632\n" +
-                "15633\n" +
-                "15635\n" +
-                "15636\n" +
-                "15643\n" +
-                "15644\n" +
-                "15647\n" +
-                "15648\n" +
-                "15649\n" +
-                "15650\n" +
-                "15651\n" +
-                "15667\n" +
-                "15668\n" +
-                "15669\n" +
-                "15670\n" +
-                "15671\n" +
-                "15679\n" +
-                "15682\n" +
-                "15683\n" +
-                "15689\n" +
-                "15690\n" +
-                "15691\n" +
-                "15703\n" +
-                "15704\n" +
-                "15705\n" +
-                "15706\n" +
-                "15719\n" +
-                "15722\n" +
-                "15736\n" +
-                "15741\n" +
-                "15754\n" +
-                "15755\n" +
-                "15756\n" +
-                "15757\n" +
-                "15759\n" +
-                "15762\n" +
-                "15763\n" +
-                "15764\n" +
-                "15765\n" +
-                "15767\n" +
-                "15768\n" +
-                "15769\n" +
-                "15770\n" +
-                "15771\n" +
-                "15776\n" +
-                "15780\n" +
-                "15790\n" +
-                "15791\n" +
-                "15792\n" +
-                "15794\n" +
-                "15796\n" +
-                "15797\n" +
-                "15829\n" +
-                "15866\n" +
-                "15872\n" +
-                "15873\n" +
-                "15874\n" +
-                "15875\n" +
-                "15878\n" +
-                "15879\n" +
-                "15880\n" +
-                "15881\n" +
-                "15882\n" +
-                "15883\n" +
-                "15889\n" +
-                "15904\n" +
-                "15909\n" +
-                "15912\n" +
-                "15923\n" +
-                "15925\n" +
-                "15928\n" +
-                "15929\n" +
-                "15955\n" +
-                "15956\n" +
-                "15957\n" +
-                "15959\n" +
-                "15960\n" +
-                "15961\n" +
-                "15962\n" +
-                "15986\n" +
-                "15987\n" +
-                "15988\n" +
-                "15989\n" +
-                "15990\n" +
-                "15997\n" +
-                "15998\n" +
-                "15999\n" +
-                "16040\n" +
-                "16058\n" +
-                "16134\n" +
-                "16137\n" +
-                "16138\n" +
-                "16139\n" +
-                "16141\n" +
-                "16144\n" +
-                "16147\n" +
-                "16148\n" +
-                "16163\n" +
-                "16166\n" +
-                "16173\n" +
-                "16196\n" +
-                "16198\n" +
-                "16200\n" +
-                "16208\n" +
-                "16209\n" +
-                "16252\n" +
-                "16256\n" +
-                "16281\n" +
-                "16290\n" +
-                "16291\n" +
-                "16292\n" +
-                "16294\n" +
-                "16296\n" +
-                "16297\n" +
-                "16298\n" +
-                "16320\n" +
-                "16321\n" +
-                "16322\n" +
-                "16323\n" +
-                "16329\n" +
-                "16330\n" +
-                "16336\n" +
-                "16337\n" +
-                "16350\n" +
-                "16351\n" +
-                "16359\n" +
-                "16360\n" +
-                "16361\n" +
-                "16362\n" +
-                "16363\n" +
-                "16379\n" +
-                "16380\n" +
-                "16381\n" +
-                "16398\n" +
-                "16408\n" +
-                "16413\n" +
-                "16414\n" +
-                "16415\n" +
-                "16432\n" +
-                "16433\n" +
-                "16434\n" +
-                "16467\n" +
-                "16471\n" +
-                "16472\n" +
-                "16474\n" +
-                "16476\n" +
-                "16506\n" +
-                "16507\n" +
-                "16511\n" +
-                "16512\n" +
-                "16513\n" +
-                "16584\n" +
-                "16585\n" +
-                "16589\n" +
-                "16590\n" +
-                "16614\n" +
-                "16621\n" +
-                "16629\n" +
-                "16650\n" +
-                "16652\n" +
-                "16658\n" +
-                "16771\n" +
-                "16772\n" +
-                "16773\n" +
-                "16846\n" +
-                "16862\n" +
-                "16863\n" +
-                "16864\n" +
-                "16868\n" +
-                "16880\n" +
-                "16881\n" +
-                "16882\n" +
-                "16883\n" +
-                "16884\n" +
-                "16909\n" +
-                "16920\n" +
-                "16926\n" +
-                "16949\n" +
-                "16950\n" +
-                "16951\n" +
-                "16955\n" +
-                "16959\n" +
-                "16961\n" +
-                "16964\n" +
-                "16965\n" +
-                "17006\n" +
-                "17007\n" +
-                "17008\n" +
-                "17020\n" +
-                "17021\n" +
-                "17022\n" +
-                "17023\n" +
-                "17025\n" +
-                "17027\n" +
-                "17060\n" +
-                "17069\n" +
-                "17070\n" +
-                "17071\n" +
-                "17102\n" +
-                "17119\n" +
-                "17139\n" +
-                "17148\n" +
-                "17151\n" +
-                "17152\n" +
-                "17162\n" +
-                "17163\n" +
-                "17164\n" +
-                "17177\n" +
-                "17178\n" +
-                "17193\n" +
-                "17194\n" +
-                "17195\n" +
-                "17196\n" +
-                "17197\n" +
-                "17198\n" +
-                "17202\n" +
-                "17220\n" +
-                "17221\n" +
-                "17231\n" +
-                "17242\n" +
-                "17243\n" +
-                "17244\n" +
-                "17245\n" +
-                "17247\n" +
-                "17320\n" +
-                "17330\n" +
-                "17348\n" +
-                "17352\n" +
-                "17389\n" +
-                "17390\n" +
-                "17391\n" +
-                "17515\n" +
-                "17528\n" +
-                "17529\n" +
-                "17533\n" +
-                "17549\n" +
-                "17550\n" +
-                "17552\n" +
-                "17553\n" +
-                "17574\n" +
-                "17575\n" +
-                "17581\n" +
-                "17582\n" +
-                "17583\n" +
-                "17592\n" +
-                "17593\n" +
-                "17594\n" +
-                "17595\n" +
-                "17599\n" +
-                "17628\n" +
-                "17629\n" +
-                "17630\n" +
-                "17631\n" +
-                "17637\n" +
-                "17738\n" +
-                "17777\n" +
-                "17778\n" +
-                "17805\n" +
-                "17948\n" +
-                "18019\n" +
-                "18074\n";
+//        String a = "56\t红米Note 5A\t，10，14，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504509343644_6311460f.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504509343635_e78a7188.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504509343639_625d9319.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504509343642_313549ef.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504509343646_8bc1a22e.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504509343646_f2d93892.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504509343950_6bd93f04.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504509343966_6d752f50.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504509344022_8a640fbf.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504509344020_9c2a3097.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504509344073_d88b457a.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504509365607_66f8c1ae.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504509365611_22c1f11c.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504509365666_0751af1b.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504509365656_576db947.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504509365671_5ddeb4f6.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1510633297675_eeb15a63.jpg，\t[{”name”:”红米note5A_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1506680247017_50ec038e.jpg”，”addTime”:1510633280840，”size”:”11.3M”}，{”name”:”红米note5A_传单_A5_反面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1506680247408_3b30ecce.jpg”，”addTime”:1510633280840，”size”:”10.94M”}，{”name”:”红米note5a_海报_60x90.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1506680247971_224d0a59.jpg”，”addTime”:1510633280840，”size”:”23.67M”}，{”name”:”红米note5a_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1506680247852_6ecb644b.jpg”，”addTime”:1510633280840，”size”:”35.14M”}，{”name”:”红米Note5A灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510633305353_33c9c6c3.ai”，”addTime”:1510633306433，”size”:”13.28M”}]\t1504509437720\t1510633309410\t1\t1\t易拉宝、海报、A5传单、灯箱\t1\n" +
+//                "61\t小米5X\t，10，14，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504768933127_06215355.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504768931072_a932e5f2.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504768933148_f9044f0a.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504768933527_d6d34d31.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504768931983_8c833f30.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504768932613_c4c845e7.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504768932073_472f69a9.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504768933622_7e2c0e83.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504768932845_170a86af.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1509010285802_be47499c.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1509010285801_7aab6e03.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1509010285801_e23a1f83.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1509010285796_b172df9f.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1509010285801_54041527.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1509010285802_7fc35d42.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1509011734015_7157d0cb.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1510130748491_29ac9278.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1510130748493_22f30457.jpg，\t[{”name”:”小米5x_人形立牌展示.JPG”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504771720842_cdca1aab.jpg”，”addTime”:1510542624166，”size”:”5.22M”}，{”name”:”小米5X_传单_A5_背面.JPG”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1509010790260_0c25a704.jpg”，”addTime”:1510542624166，”size”:”17.86M”}，{”name”:”小米5X_粉色_传单_A5_正面.JPG”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1509010790484_11732a2e.jpg”，”addTime”:1510542624166，”size”:”19.87M”}，{”name”:”小米5X_黑色_传单_A5_正面.JPG”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1509010790740_1df43960.jpg”，”addTime”:1510542624166，”size”:”20.5M”}，{”name”:”小米5X_粉色_海报_60x90.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1509010790860_23346ef2.jpg”，”addTime”:1510542624167，”size”:”25.58M”}，{”name”:”小米5X_黑色_海报_60x90.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1509010792813_34a93d7e.jpg”，”addTime”:1510542624167，”size”:”27.83M”}，{”name”:”小米5X_粉色_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1509010791780_b5b7a384.jpg”，”addTime”:1510542624167，”size”:”39.81M”}，{”name”:”小米5X_红色_传单_A5_正面.JPG”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1509010794740_bbd8d0b1.jpg”，”addTime”:1510542624167，”size”:”20.66M”}，{”name”:”小米5X_红色_海报_60x90.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1509010795072_88788637.jpg”，”addTime”:1510542624167，”size”:”29.59M”}，{”name”:”小米5X_黑色_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1509010794755_bec48d1e.jpg”，”addTime”:1510542624167，”size”:”45.07M”}，{”name”:”小米5X_金色_传单_A5_正面.JPG”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1509010797858_63ff7aba.jpg”，”addTime”:1510542624167，”size”:”20.46M”}，{”name”:”小米5X_金色_海报_60x90.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1509010798448_2f3024fa.jpg”，”addTime”:1510542624167，”size”:”27.79M”}，{”name”:”小米5X_金色_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1509010799278_b190e889.jpg”，”addTime”:1510542624167，”size”:”44.15M”}，{”name”:”小米5X_红色_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1509010797089_2ddabf15.jpg”，”addTime”:1510542624168，”size”:”46.15M”}，{”name”:”小米5X_传单_A5_背面.PSD”，”url”:”undefined”，”addTime”:1510542624168，”size”:”735.47M”}，{”name”:”小米5X全部文件的.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1509010867480_a7e1b4ac.zip”，”addTime”:1510542624168，”size”:”628.04M”}，{”name”:”小米5X灯箱源文件.AI”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510130796893_91453fef.ai”，”addTime”:1510542624168，”size”:”708.39M”}，{”name”:”小米5X_红色_灯箱源文件.AI”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510130902327_14f2f5e5.ai”，”addTime”:1510542624168，”size”:”63.41M”}，{”name”:”小米5x_人形立牌展示.psd.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510542810706_341af318.psd.zip”，”addTime”:1510542818531，”size”:”321.94M”}]\t1504771741062\t1510542822641\t1\t1\tDM单、海报、易拉宝、人形立板、灯箱\t1\n" +
+//                "62\t8H标准乳胶枕Z1\t，12，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504777439965_697a67ca.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504777439834_22e80475.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504777440364_805a0b84.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504779789199_2d90e0b7.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504777454805_3ff2a418.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504777454934_1b200564.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504777454947_2ea3b34d.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504777454975_c21961d5.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504777455199_515122ae.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1514450625067_8db87578.jpg，\t[{”name”:”8H标准乳胶枕Z1_传单_A5_正面.JPG”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504777575188_a6a9408a.jpg”，”addTime”:1514450617765，”size”:”4.29M”}，{”name”:”8H标准乳胶枕Z1_易拉宝_80x180.jpg”，”url”:”undefined”，”addTime”:1514450617766，”size”:”27.52M”}，{”name”:”8H标准乳胶枕Z1_海报_60x90.jpg”，”url”:”undefined”，”addTime”:1514450617766，”size”:”24.82M”}，{”name”:”8H标准乳胶枕Z1_传单_A5_背面.JPG”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504854611858_d0f4c229.jpg”，”addTime”:1514450617766，”size”:”286.82K”}，{”name”:”8H标准乳胶枕Z1_传单_A5_背面.PSD”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504864287640_955fa34b.psd”，”addTime”:1514450617766，”size”:”418.31M”}，{”name”:”8H标准乳胶枕Z1全部文件的.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504864334751_4dcffdc9.zip”，”addTime”:1514450617766，”size”:”172.34M”}，{”name”:”8H标准乳胶枕Z1灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1514450630219_79d7db8e.ai”，”addTime”:1514450630817，”size”:”4.04M”}]\t1504778210540\t1514450638460\t1\t1\t易拉宝，传单，海报，灯箱\t1\n" +
+//                "63\t小米笔记本\t，11，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504778012188_3d4098a9.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504778012188_a88cb388.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504778012214_13b2de96.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504778012220_72833e50.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504778012215_01a79a11.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504848502074_a82c6cce.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504848502076_dafad12b.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504848502077_2506a4b7.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504848502076_cea2fc7e.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504848502080_a619f660.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1510915763895_7f024c82.jpg，\t[{”name”:”笔记本_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504848539973_a3f94b45.jpg”，”addTime”:1510915746480，”size”:”12.48M”}，{”name”:”笔记本_传单_A5_背面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504848540319_f72a09cf.jpg”，”addTime”:1510915746480，”size”:”11.26M”}，{”name”:”笔记本_海报_60x90.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504848540107_b9b7ca96.jpg”，”addTime”:1510915746480，”size”:”13.79M”}，{”name”:”笔记本_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504848540857_dd88900e.jpg”，”addTime”:1510915746480，”size”:”20.28M”}，{”name”:”有小米的品质生活_易拉宝_80x180.psd.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504855518778_ad82275e.psd.zip”，”addTime”:1510915746481，”size”:”399.96M”}，{”name”:”小米笔记本灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510915774135_58cfcb40.ai”，”addTime”:1510915775358，”size”:”14.41M”}]\t1504778423439\t1510915791655\t1\t1\t海报，传单，易拉宝，灯箱\t1\n" +
+//                "64\t九号平衡车\t，11，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504778321215_4aa8a42c.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504778322443_6b511038.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504778321585_5b376715.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504779761609_8b7f09b3.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504778333070_5f318548.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504778333318_8416b02d.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504778333646_4f6bf6c2.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504778332966_4347e085.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504854485871_ed8a4f63.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1510799146526_707c1820.jpg，\t[{”name”:”九号平衡车_传单_A5_正面.JPG”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504778408594_c7ba1d7c.jpg”，”addTime”:1513841357247，”size”:”2.73M”}，{”name”:”九号平衡车_传单_A5_背面.JPG”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504851607610_70fc3ba2.jpg”，”addTime”:1513841357247，”size”:”436.76K”}，{”name”:”九号平衡车_海报_60x90.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504854528061_62f9861d.jpg”，”addTime”:1513841357247，”size”:”14.8M”}，{”name”:”九号平衡车_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504854540923_13b9a15f.jpg”，”addTime”:1513841357247，”size”:”21.7M”}，{”name”:”九号平衡车_传单_A5_背面.PSD”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504864446466_8164779b.psd”，”addTime”:1513841357248，”size”:”266.86M”}，{”name”:”九号平衡车全部文件的.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504864475849_024d8cdb.zip”，”addTime”:1513841357248，”size”:”76.85M”}，{”name”:” 九号平衡车灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1513841368311_8b78bc9c.ai”，”addTime”:1513841369442，”size”:”8.2M”}]\t1504778429800\t1513841371708\t1\t1\t易拉宝，传单，海报，灯箱\t1\n" +
+//                "65\t小米6\t，10，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504773506629_4544d980.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504773505326_60feb87f.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504773505481_b98571d9.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504773506660_13edf32a.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504773506569_93da1991.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504773504419_17d56da0.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504773506255_279b4a20.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504773507134_ef58f825.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504777323979_3b94c431.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504777323500_91167858.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504777323814_abd3cceb.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504779013652_bb21efce.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504779013670_073aaa9c.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1509589376412_de2434e6.jpg，\t[{”name”:”小米6_DM单_A5.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504786013429_e686a5a7.jpg”，”addTime”:1509589351387，”size”:”12.52M”}，{”name”:”小米6_海报_60x90cm.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504786023477_f7416b7f.jpg”，”addTime”:1509589351388，”size”:”7.78M”}，{”name”:”小米6_展架_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504786040481_4496176e.jpg”，”addTime”:1509589351388，”size”:”20.86M”}，{”name”:”小米6灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1509589387579_a8df6f9c.ai”，”addTime”:1509589392803，”size”:”149.96M”}]\t1504779046555\t1509589412639\t1\t1\t海报、DM单、门型展架，灯箱\t1\n" +
+//                "66\t天然气报警器\t，11，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504772914788_78e93890.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504772914793_4115dcc8.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504772914797_32832e5a.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504772914798_e918a80a.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504778911410_693ecc47.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504778911411_94135d70.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504778911412_ede0205f.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504778911413_4800c25a.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504778911414_0f9daf80.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504778911406_540ec711.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1510915356960_a9873248.jpg，\t[{”name”:”天然气报警器_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504778929846_54341dc1.jpg”，”addTime”:1510915316870，”size”:”2.62M”}，{”name”:”天然气报警器_海报_60x90.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504778930854_88e40e63.jpg”，”addTime”:1510915316870，”size”:”15.27M”}，{”name”:”天然气_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504778930834_25e3f8b5.jpg”，”addTime”:1510915316870，”size”:”19.21M”}，{”name”:”天然气报警器_传单_A5_背面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504861029533_3d530a4b.jpg”，”addTime”:1510915316870，”size”:”302.92K”}，{”name”:”天然气报警器_传单_A5_背面.psd”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504861040286_237e7bfb.psd”，”addTime”:1510915316870，”size”:”266.86M”}，{”name”:”天然气报警器_全部文件.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504861046514_20c81a62.zip”，”addTime”:1510915316870，”size”:”123.95M”}，{”name”:”天然气报警器灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510915373287_6363f11f.ai”，”addTime”:1510915373753，”size”:”4.25M”}]\t1504779080373\t1510915385404\t1\t1\t传单、物料、易拉宝、灯箱\t1\n" +
+//                "67\t有小米的品质生活\t，13，\t\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504779038643_1a636f06.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504779038646_da68ce4a.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504779038646_4f34f002.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1514173055100_95e26cde.jpg，\t[{”name”:”有小米的品质生活_传单_A5_正面.JPG”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504779076196_09ea1aa0.jpg”，”addTime”:1522812846193，”size”:”23.19M”}，{”name”:”有小米的品质生活_传单_A5_背面.JPG”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504779076362_be419824.jpg”，”addTime”:1522812846194，”size”:”24.08M”}，{”name”:”有小米的品质生活_传单_A5.psd”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504855233471_b54f064c.psd”，”addTime”:1522812846194，”size”:”418.31M”}，{”name”:”有小米的品质生活_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1514173080591_5579df2e.jpg”，”addTime”:1522812846194，”size”:”33.15M”}，{”name”:”有小米的品质生活_易拉宝_80x180.psd.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1514174187468_fdbfd801.psd.zip”，”addTime”:1522812846194，”size”:”399.94M”}]\t1504779111198\t1522812850131\t1\t1\t传单，易拉宝\t1\n" +
+//                "68\t小米智能家居\t，13，\t\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504779156378_4cfbb3bb.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504848860372_01f3b90a.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504848860380_e0d6f7b4.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1514172754720_f16650ea.jpg，\t[{”name”:”小米智能家居_传单_A5_正面.JPG”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504848881870_24ce1bda.jpg”，”addTime”:1522812853911，”size”:”16.99M”}，{”name”:”小米智能家居_传单_A5_背面.JPG”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504848881866_d8a23920.jpg”，”addTime”:1522812853911，”size”:”18.08M”}，{”name”:”小米智能家居_传单_A5_源文件.PSD”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504854648189_51558570.psd”，”addTime”:1522812853911，”size”:”266.86M”}，{”name”:”小米智能家居_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1514172786158_ccddf691.jpg”，”addTime”:1522812853911，”size”:”30.16M”}，{”name”:”小米智能家居_易拉宝_80x180.psd.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1514174972652_33cd1d08.psd.zip”，”addTime”:1522812853911，”size”:”683.75M”}]\t1504779230573\t1522812856971\t1\t1\t传单，易拉宝\t1\n" +
+//                "69\t小米手机拍人更美\t，13，\t\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504779287732_a35abc26.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504779287734_3278f06f.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504779287733_1521db24.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1514172684492_d9129a5d.jpg，\t[{”name”:”小米手机拍人更美_传单_A5_正面.JPG”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504779312696_4eccc976.jpg”，”addTime”:1522812802615，”size”:”17.04M”}，{”name”:”小米手机拍人更美_传单_A5_背面.JPG”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504779312560_e75b69fd.jpg”，”addTime”:1522812802615，”size”:”17.86M”}，{”name”:”小米手机拍人更美_传单_A5.psd”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504849160762_1942764d.psd”，”addTime”:1522812802615，”size”:”735.47M”}，{”name”:”小米手机拍人更美_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1514172715466_4c71c68e.jpg”，”addTime”:1522812802615，”size”:”28.51M”}]\t1504779340036\t1522812810586\t1\t1\t传单，易拉宝\t1\n" +
+//                "70\t小米科技在你身边\t，13，\t\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504779370882_11907e5b.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504848745180_e3fb7b40.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504848745181_b38800cc.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1514172820414_f6a8b22d.jpg，\t[{”name”:”小米科技在你身边_传单_A5_背面.JPG”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504848778387_f0f69474.jpg”，”addTime”:1522812828660，”size”:”17.18M”}，{”name”:”小米科技在你身边_传单_A5_正面.JPG”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504848778245_31004888.jpg”，”addTime”:1522812828660，”size”:”16.64M”}，{”name”:”小米科技在你身边_传单_A5.psd”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504853109010_32cf0f00.psd”，”addTime”:1522812828660，”size”:”472.71M”}，{”name”:”小米科技在你身边_综合易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1514172939793_cade80d4.jpg”，”addTime”:1522812828661，”size”:”25.73M”}，{”name”:”小米科技在你身边_综合易拉宝_80x180.psd.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1514185992294_fca265e1.psd.zip”，”addTime”:1522812828661，”size”:”615.58M”}]\t1504779423345\t1522812831569\t1\t1\t传单，易拉宝\t1\n" +
+//                "71\t小米科技在你身边分类版\t，13，\t\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504848694495_d9d432ae.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1514173004218_a2e7ff32.jpg，\t[{”name”:”小米物料分类_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1514174459634_813d1f6a.jpg”，”addTime”:1522812839063，”size”:”23.78M”}，{”name”:”小米物料分类_易拉宝_80x180.psd.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1514174915629_b78194dd.psd.zip”，”addTime”:1522812839063，”size”:”535.47M”}]\t1504779486276\t1522812842334\t1\t1\t易拉宝\t1\n" +
+//                "72\t米家 IH 电饭煲\t，11，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504779822770_7eb8ecaa.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504779822909_515633a8.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504779822560_44239772.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504779952651_067278a6.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504779965684_f35533d5.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504779966310_086681f7.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504779965996_59837486.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504779965778_81ba9c55.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504843960218_631a7147.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1510799089465_50ef611a.jpg，\t[{”name”:”米家IH电饭煲_传单_A5_正面.JPG”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504780042021_fa7d7023.jpg”，”addTime”:1510799072285，”size”:”1.77M”}，{”name”:”米家IH电饭煲_海报_60x90.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504780113570_3e4da026.jpg”，”addTime”:1510799072285，”size”:”14.01M”}，{”name”:”米家IH电饭煲_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504780223259_c1c8a339.jpg”，”addTime”:1510799072285，”size”:”19.83M”}，{”name”:”米家IH电饭煲_传单_A5_背面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504854440272_5eae0dec.jpg”，”addTime”:1510799072285，”size”:”436.76K”}，{”name”:”米家IH电饭煲_传单_A5_背面.psd”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504863939318_9ee33f80.psd”，”addTime”:1510799072285，”size”:”266.86M”}，{”name”:”米家 IH 电饭煲全部文件.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504864531869_09c92070.zip”，”addTime”:1510799072285，”size”:”42.41M”}，{”name”:”米家 IH 电饭煲灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510799099706_b5e422f8.ai”，”addTime”:1510799100617，”size”:”9.93M”}]\t1504780269006\t1510799114080\t1\t1\t易拉宝，传单，海报，灯箱\t1\n" +
+//                "73\t体脂秤\t，11，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504781110704_bceb8cbd.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504781110703_6a71f7e1.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504781110718_cd52d579.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504781110714_7e32c1e0.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504781168785_1e25d6be.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504781168787_c8a2f53e.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504781168819_0368295c.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504781168834_fd6048ca.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504781168823_48a46503.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1510915433260_42e38ab3.jpg，\t[{”name”:”小米体脂秤_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504781241909_87f0b3de.jpg”，”addTime”:1510915406736，”size”:”11.29M”}，{”name”:”小米体脂秤_海报_60x90.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504781241804_dc833821.jpg”，”addTime”:1510915406736，”size”:”12.29M”}，{”name”:”小米体脂秤_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504781242624_a5e75a7f.jpg”，”addTime”:1510915406736，”size”:”36.7M”}，{”name”:”体脂秤_传单_A5_背面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504860576534_3752ee44.jpg”，”addTime”:1510915406737，”size”:”18.09M”}，{”name”:”体脂秤_传单_A5_背面.psd”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504860587799_35e3a7d3.psd”，”addTime”:1510915406737，”size”:”266.86M”}，{”name”:”体脂秤_全部文件.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504860644228_1dff055f.zip”，”addTime”:1510915406737，”size”:”150.64M”}，{”name”:”体脂秤灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510915441941_b45a67e4.ai”，”addTime”:1510915442245，”size”:”2.39M”}]\t1504781809677\t1510915453709\t1\t1\t易拉宝，传单，海报，灯箱\t1\n" +
+//                "74\t米家电水壶\t，12，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504782375008_0ff8b7be.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504782375222_ff634884.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504782374641_4d436eac.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504841519928_77b5f68e.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504782383923_6b9fd57a.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504782383997_f749a11a.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504782384173_95108a33.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504782384258_c575819f.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504782384756_1bbf8056.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1514432339613_de8a0fa9.jpg，\t[{”name”:”米家电水壶_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504782511199_19ab2b0d.jpg”，”addTime”:1514432333613，”size”:”12.91M”}，{”name”:”米家电水壶_海报_60x90.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504782528304_15a21ad0.jpg”，”addTime”:1514432333613，”size”:”14.29M”}，{”name”:”米家电水壶_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504782561948_a18e66f9.jpg”，”addTime”:1514432333613，”size”:”27.01M”}，{”name”:”米家电水壶_传单_A5_背面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504851811967_6cb47fdc.jpg”，”addTime”:1514432333613，”size”:”286.82K”}，{”name”:”米家电水壶全部文件.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504864827440_3451d424.zip”，”addTime”:1514432333613，”size”:”200.81M”}，{”name”:”米家电水壶_传单_A5_背面.psd”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504864864929_3e7cd481.psd”，”addTime”:1514432333613，”size”:”418.31M”}，{”name”:”米家电水壶灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1514432345207_59ca5428.ai”，”addTime”:1514432345494，”size”:”1.54M”}]\t1504782576605\t1514432351468\t1\t1\t易拉宝，传单，海报，灯箱\t1\n" +
+//                "75\t小米手环2\t，11，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504783638136_818001fc.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504783638135_c6c44610.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504783638120_5313739c.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504783638119_c41cafdc.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504783651423_61230767.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504783651426_9a456a1a.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504783651430_e6b92364.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504783651429_60f5bb29.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504783651440_18d2c7c7.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1510799276839_2810c673.jpg，\t[{”name”:”小米手环2_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504783664673_32058587.jpg”，”addTime”:1510799256440，”size”:”11.6M”}，{”name”:”小米手环2_海报_60x90.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504783664687_f5624602.jpg”，”addTime”:1510799256441，”size”:”12.82M”}，{”name”:”小米手环2_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504783665296_ef9ea105.jpg”，”addTime”:1510799256441，”size”:”21.15M”}，{”name”:”小米手环2_传单_A5_背面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504861323166_92b12516.jpg”，”addTime”:1510799256441，”size”:”18.09M”}，{”name”:”小米手环2_传单_A5_背面.psd”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504861334390_ce18f95b.psd”，”addTime”:1510799256441，”size”:”266.86M”}，{”name”:”小米手环2_全部文件.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504861388571_b704b3b1.zip”，”addTime”:1510799256441，”size”:”136.27M”}，{”name”:”小米手环2灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510799287427_7446a81c.ai”，”addTime”:1510799292570，”size”:”40.04M”}]\t1504783874856\t1510799303087\t1\t1\t易拉宝，传单，海报，灯箱\t1\n" +
+//                "76\t小米小钢炮蓝牙音箱2\t，11，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504784558120_98a52ea6.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504784558122_df4439d3.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504784558123_b4524091.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859418476_6cc3ad94.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859418478_5ed30c51.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859418479_be283423.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859418476_04190f0a.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859418483_66f3f450.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1510915597426_a48cacff.jpg，\t[{”name”:”小钢炮蓝牙音箱2_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504784591925_7f8bfc69.jpg”，”addTime”:1510915572926，”size”:”1.67M”}，{”name”:”小米小钢炮蓝牙音箱2_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504784592985_4afd60ba.jpg”，”addTime”:1510915572927，”size”:”18.89M”}，{”name”:”小钢炮蓝牙音箱2_海报_60x90.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504784597431_3188fff3.jpg”，”addTime”:1510915572927，”size”:”13.81M”}，{”name”:”小米智能家居_传单_A5_背面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504859438668_bd5cfb06.jpg”，”addTime”:1510915572927，”size”:”302.92K”}，{”name”:”小米智能家居A5传单.psd”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504859456533_e69f33f2.psd”，”addTime”:1510915572927，”size”:”266.86M”}，{”name”:”小米小钢炮蓝牙音箱2_全部文件.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504859691302_069fced2.zip”，”addTime”:1510915572927，”size”:”122.27M”}，{”name”:”小米小钢炮蓝牙音箱2灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510915602564_39a5d65d.ai”，”addTime”:1510915603128，”size”:”5.6M”}]\t1504784626426\t1510915620379\t1\t1\t易拉宝，传单，海报，灯箱\t1\n" +
+//                "77\t小米max2\t，10，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1508930663114_bfc1cbc4.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1508930663099_8d72c5f7.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1508930663095_18b5035a.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1508930663100_dd5d1505.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1508930663101_b6d44d41.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1508930663136_2a5f94d7.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1508930663042_2eca45fc.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1508930696859_53e16def.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1508930696860_ca0bd289.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1508930696857_f81d53e5.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1508930696876_b4c6e904.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1508930696881_ddcd806c.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1508930696861_e62e87f9.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1510131044659_73436a70.jpg，\t[{”name”:”小米Max2_传单_A5_背面.JPG”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1508930742447_58b1a809.jpg”，”addTime”:1522812975157，”size”:”17.86M”}，{”name”:”小米Max2-金_海报_60x90.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1508930741912_0864a951.jpg”，”addTime”:1522812975157，”size”:”27.31M”}，{”name”:”小米Max2-黑_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1508930742390_f83f968d.jpg”，”addTime”:1522812975157，”size”:”44.69M”}，{”name”:”小米Max2-黑_海报_60x90.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1508930743739_23aa4c92.jpg”，”addTime”:1522812975157，”size”:”30.89M”}，{”name”:”小米Max2-黑_传单_A5_正面.JPG”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1508930745688_4e4accc6.jpg”，”addTime”:1522812975157，”size”:”20.63M”}，{”name”:”小米Max2-金_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1508930747227_76ec8ebc.jpg”，”addTime”:1522812975157，”size”:”37.28M”}，{”name”:”小米Max2_传单_A5_背面.PSD”，”url”:”undefined”，”addTime”:1522812975157，”size”:”735.47M”}，{”name”:”小米最大值2全部文件的.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1508930844688_a8f0c7b5.zip”，”addTime”:1522812975158，”size”:”518.36M”}，{”name”:”小米最大值2灯箱源文件.AI”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510131053925_8e26a994.ai”，”addTime”:1522812975158，”size”:”103.59M”}]\t1504785249032\t1522812983328\t1\t1\tDM单、海报、易拉宝、灯箱\t1\n" +
+//                "78\t最生活毛巾\t，12，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504785242278_c65aaee9.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504785242276_916b50d3.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504785242279_c8ebe8c8.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504785242277_42833649.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504785252946_c3060c7a.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504785252947_b20ac561.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504785252949_fdda0855.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504785252949_c305a23f.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504785252955_666df206.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1511944824578_85f077f2.jpg，\t[{”name”:”最生活毛巾_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504785382140_c2847cac.jpg”，”addTime”:1511944804604，”size”:”1.06M”}，{”name”:”最生活毛巾_海报_60x90.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504785382684_c222121c.jpg”，”addTime”:1511944804604，”size”:”13.3M”}，{”name”:”最生活毛巾_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504785382846_8f2dbce2.jpg”，”addTime”:1511944804604，”size”:”17.53M”}，{”name”:”最生活毛巾_传单_A5_背面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504860374104_b9948523.jpg”，”addTime”:1511944804604，”size”:”24.08M”}，{”name”:”最生活毛巾_传单_A5_背面.psd”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504860389139_23530966.psd”，”addTime”:1511944804604，”size”:”418.31M”}，{”name”:”最生活毛巾_全部文件.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504860434445_b5ec6e03.zip”，”addTime”:1511944804604，”size”:”193.02M”}，{”name”:”最生活毛巾灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1511944835290_eabd2b13.ai”，”addTime”:1511944836840，”size”:”14.26M”}]\t1504785431259\t1511944863098\t1\t1\t易拉宝，传单，海报，灯箱\t1\n" +
+//                "79\tAMAZFIT运动手表\t，11，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504785503871_c330540d.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504785503874_c6aa8feb.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504785503872_1649a5ce.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504785503874_7a50bcf3.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504786072325_0a283803.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504786072329_7be54028.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504786072330_f945b0e7.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504786072329_e2ef71f8.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504786072332_97ad8582.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1510915482037_40a684d8.jpg，\t[{”name”:”AMAZFIT运动手表_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504786082562_dd8da673.jpg”，”addTime”:1510915467400，”size”:”11.93M”}，{”name”:”AMAZFIT运动手表_海报_60x90.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504786082650_f2d27445.jpg”，”addTime”:1510915467401，”size”:”13.32M”}，{”name”:”AMAZFIT运动手表_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504786083387_105acbc0.jpg”，”addTime”:1510915467401，”size”:”44.06M”}，{”name”:”AMAZFIT运动手表.psd”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504859863188_6310c0cc.psd”，”addTime”:1510915467401，”size”:”348.94M”}，{”name”:”AMAZFIT运动手表_传单_A5_背面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504859964052_d2877230.jpg”，”addTime”:1510915467401，”size”:”302.92K”}，{”name”:”AMAZFIT运动手表_全部文件.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504860241569_937a5f95.zip”，”addTime”:1510915467401，”size”:”142.19M”}，{”name”:”AMAZFIT运动手表灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510915493683_ce14946c.ai”，”addTime”:1510915494809，”size”:”12.25M”}]\t1504786134022\t1510915509387\t1\t1\t易拉宝，传单，海报，灯箱\t1\n" +
+//                "80\t产品价签\t，13，\t\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504787263489_60be0864.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504787266587_e1e8dd7b.jpg，\t[{”name”:”手机类价签.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504786484702_bd4660e4.zip”，”addTime”:1504854914336，”size”:”14.37M”}，{”name”:”电视类价签.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504786515720_8838694d.zip”，”addTime”:1504854914337，”size”:”7.29M”}，{”name”:”小价签.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504786523520_40e25129.zip”，”addTime”:1504854914337，”size”:”4.19M”}，{”name”:”生态链价签.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504855018475_14dbb979.zip”，”addTime”:1504855033212，”size”:”60.1M”}]\t1504787268891\t1504855425977\t1\t1\t手机类、电视类、生态链类价签\t1\n" +
+//                "82\t米家智能摄像机\t，11，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504837557438_8e175829.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504837557264_0e72016b.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504837557224_6715678c.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504837567713_ae903e99.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504837567714_df53ea34.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504837568044_f01b1606.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504837568141_d7459ab4.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504844735446_d7a69bb9.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1510915879301_e53a2026.jpg，\t[{”name”:”米家智能摄像机_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504837590584_764c27d2.jpg”，”addTime”:1510915867342，”size”:”1.65M”}，{”name”:”米家智能摄像机_海报_60x90cm.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504837641484_2c5c6225.jpg”，”addTime”:1510915867342，”size”:”14.26M”}，{”name”:”米家智能摄像机_易拉宝_80x180cm.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504837661824_1dd2bf5b.jpg”，”addTime”:1510915867342，”size”:”18.12M”}，{”name”:”米家智能摄像机_传单_A5_背面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504844802289_e8d5a8b6.jpg”，”addTime”:1510915867342，”size”:”18.08M”}，{”name”:”米家智能摄像机_传单_A5_背面.psd”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504845179649_a27b5773.psd”，”addTime”:1510915867342，”size”:”266.86M”}，{”name”:”小米智能家居_全部文件.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504847500387_36cb6f1e.zip”，”addTime”:1510915867342，”size”:”127.58M”}，{”name”:”米家智能摄像机灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510915885259_08dca7e5.ai”，”addTime”:1510915887127，”size”:”22.08M”}]\t1504837673764\t1510915895311\t1\t1\t传单、海报、易拉宝、灯箱\t1\n" +
+//                "83\t米兔定位电话\t，11，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504837747978_ff14678d.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504837747618_ceb86768.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504837747535_1715ebcb.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504837747751_59c9d7cf.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504837747039_b6e26b24.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504837757731_f15f2fb6.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504837757966_efc2bf7b.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504837758208_cfa5f450.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504837758361_35a9823f.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504847700661_db6aae1f.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1511343730511_becd891d.jpg，\t[{”name”:”米兔定位电话_海报_60x90cm.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504837843139_4b1342c4.jpg”，”addTime”:1511343699692，”size”:”19.52M”}，{”name”:”米兔定位电话_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504837882485_f24c6788.jpg”，”addTime”:1511343699692，”size”:”18.65M”}，{”name”:”米兔定位电话_易拉宝_80x180cm.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504837885252_a8592846.jpg”，”addTime”:1511343699692，”size”:”26.07M”}，{”name”:”米兔定位电话_传单_A5_背面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504847757401_4b76891f.jpg”，”addTime”:1511343699693，”size”:”18.08M”}，{”name”:”米兔定位电话_传单_A5_背面.psd”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504848380079_804d4220.psd”，”addTime”:1511343699693，”size”:”266.86M”}，{”name”:”米兔定位电话_全部文件.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504849802524_8de57f80.zip”，”addTime”:1511343699693，”size”:”140.66M”}，{”name”:”米兔定位电话灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1511343738861_2d4a91dc.ai”，”addTime”:1511343738311，”size”:”2.36M”}]\t1504837907700\t1511343753563\t1\t1\t传单、海报、易拉宝、灯箱\t1\n" +
+//                "84\t米兔儿童电话手表\t，11，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504837987022_e08e1dbf.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504837986738_113f8b91.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504837987259_bc6fc34b.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504837987238_f4ca3594.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504837987489_9872fd7f.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504837999157_26597ce8.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504837999177_6daf893f.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504837998823_46091360.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504837998636_e0143200.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504852822345_3b7aa789.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1511343791061_383f1501.jpg，\t[{”name”:”米兔儿童电话手表_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504838145028_dc183b03.jpg”，”addTime”:1511343767666，”size”:”19.0M”}，{”name”:”米兔儿童电话手表_海报_60x90cm.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504838151750_f9514bdd.jpg”，”addTime”:1511343767666，”size”:”20.86M”}，{”name”:”米兔儿童电话手表_易拉宝_80x180cm.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504838157611_974f2dca.jpg”，”addTime”:1511343767667，”size”:”42.91M”}，{”name”:”米兔儿童电话手表_传单_A5_背面.jpg”，”url”:”undefined”，”addTime”:1511343767667，”size”:”18.08M”}，{”name”:”米兔儿童电话手表_传单_A5_背面.psd”，”url”:”undefined”，”addTime”:1511343767667，”size”:”266.86M”}，{”name”:”米兔儿童电话手表_全部文件.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504853985998_ecc898b0.zip”，”addTime”:1511343767667，”size”:”159.3M”}，{”name”:”米兔儿童电话手表灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1511343799940_dd0e0a8a.ai”，”addTime”:1511343799498，”size”:”3.79M”}]\t1504838209980\t1511343810825\t1\t1\t传单、海报、易拉宝、灯箱\t1\n" +
+//                "85\t小方智能摄像机\t，11，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504838292262_2c61845d.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504838292409_4610c0da.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504838291731_bccad110.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504838291953_392f4e61.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504838302022_84933ef4.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504838302316_be5d9deb.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504838301752_16c661ce.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504838301785_12f18aa0.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504854047608_f65686b8.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1511343833904_37a949d7.jpg，\t[{”name”:”小方智能摄像机_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504838373884_0b068d2d.jpg”，”addTime”:1511343825946，”size”:”11.44M”}，{”name”:”小方智能摄像机_海报_60x90cm.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504838376862_56a949a2.jpg”，”addTime”:1511343825946，”size”:”12.64M”}，{”name”:”小方智能摄像机_易拉宝_80x180cm.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504838392592_fa9f11c8.jpg”，”addTime”:1511343825946，”size”:”14.14M”}，{”name”:”小方智能摄像机_传单_A5_背面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504854245632_183955a4.jpg”，”addTime”:1511343825947，”size”:”18.08M”}，{”name”:”小方智能摄像机_传单_A5_背面.psd”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504854745342_23ca96f8.psd”，”addTime”:1511343825947，”size”:”266.86M”}，{”name”:”小方职能摄像机_全部文件.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504855138758_cdb9d6d0.zip”，”addTime”:1511343825947，”size”:”129.67M”}，{”name”:”小方智能摄像机灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1511343839963_034d3d75.ai”，”addTime”:1511343839622，”size”:”4.75M”}]\t1504839277096\t1511343848687\t1\t1\t传单、海报、易拉宝、灯箱\t1\n" +
+//                "86\t小米净水器\t，11，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504839333669_35c9909c.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504839334048_029ce3fc.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504839334284_ff028c94.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504839344090_2a0d9832.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504839343968_82a4507d.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504839344248_9ae5948f.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504839344407_8b9b2448.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504855487126_28c1c07c.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1511343866957_067f71ac.jpg，\t[{”name”:”小米净水器_海报_60x90cm.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504839416308_f2d5adc7.jpg”，”addTime”:1511343855436，”size”:”14.05M”}，{”name”:”小米净水器_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504839420469_62625cdd.jpg”，”addTime”:1511343855436，”size”:”12.76M”}，{”name”:”小米净水器_易拉宝_80x180cm.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504839469093_6c67dfc8.jpg”，”addTime”:1511343855436，”size”:”25.08M”}，{”name”:”小米净水器_传单_A5_背面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504855585799_5869a647.jpg”，”addTime”:1511343855436，”size”:”18.08M”}，{”name”:”小米净水器_传单_A5_背面.psd”，”url”:”undefined”，”addTime”:1511343855437，”size”:”266.86M”}，{”name”:”小米净水器_全部文件.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504856969737_6121c619.zip”，”addTime”:1511343855437，”size”:”141.87M”}，{”name”:”小米净水器灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1511343876747_26e83446.ai”，”addTime”:1511343877162，”size”:”14.38M”}]\t1504839655853\t1511343886397\t1\t1\t传单、海报、易拉宝、灯箱\t1\n" +
+//                "87\t小米空气净化器 2\t，11，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504839716929_8fa9c742.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504839716052_6005b51b.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504839884289_e7fca596.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504839734755_732d8f02.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504839735256_6cf12a68.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504839735499_4b96de81.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504839734966_68e94f59.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504857254118_c8f52abf.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1510915722030_34715b08.jpg，\t[{”name”:”小米空气净化器 2_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504839913565_528acfab.jpg”，”addTime”:1510915699101，”size”:”2.93M”}，{”name”:”小米空气净化器 2_海报_60x90cm.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504839987388_91f37968.jpg”，”addTime”:1510915699101，”size”:”15.06M”}，{”name”:”小米空气净化器 2_易拉宝_80x180cm.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504839996866_561fc4d6.jpg”，”addTime”:1510915699101，”size”:”24.77M”}，{”name”:”小米空气净化器 2_传单_A5_背面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504857297314_4babf3a9.jpg”，”addTime”:1510915699102，”size”:”18.08M”}，{”name”:”小米空气净化器 2_传单_A5_背面.psd”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504857729637_f788dc6a.psd”，”addTime”:1510915699102，”size”:”266.86M”}，{”name”:”小米空气净化器 2_全部文件.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504857991158_c3bc1924.zip”，”addTime”:1510915699102，”size”:”139.28M”}，{”name”:”小米空气净化器 2灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510915729724_a3504572.ai”，”addTime”:1510915730686，”size”:”10.95M”}]\t1504840473326\t1510915741000\t1\t1\t传单、海报、易拉宝、灯箱\t1\n" +
+//                "88\t小米路由器3\t，11，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504840566990_0ba58860.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504840567404_d21da3a8.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504840567360_36d2d6e6.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504840567986_3f3e1f65.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504840579075_a6b040f8.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504840578713_3fd627d8.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504840578506_9a5bb7c0.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504840578748_c350534a.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504858193238_f6c862a6.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1510915664799_cae9caeb.jpg，\t[{”name”:”小米路由器3_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504840596627_4f999556.jpg”，”addTime”:1510915634467，”size”:”1.6M”}，{”name”:”小米路由器3_海报_60x90cm.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504840598884_b2d3cf82.jpg”，”addTime”:1510915634467，”size”:”1.33M”}，{”name”:”小米路由器3_易拉宝_80x180cm.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504840626845_90442525.jpg”，”addTime”:1510915634467，”size”:”2.54M”}，{”name”:”小米路由器3_传单_A5_背面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504858254414_66fe2611.jpg”，”addTime”:1510915634467，”size”:”18.08M”}，{”name”:”小米路由器3_传单_A5_背面.psd”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504858656195_24805181.psd”，”addTime”:1510915634467，”size”:”266.86M”}，{”name”:”小米路由器3_全部文件.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504858951673_42818bc4.zip”，”addTime”:1510915634468，”size”:”116.28M”}，{”name”:”小米路由器3灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510915670116_613431eb.ai”，”addTime”:1510915671236，”size”:”10.74M”}]\t1504840600975\t1510915685773\t1\t1\t传单、海报、易拉宝、灯箱\t1\n" +
+//                "89\t米家智能插线板\t，12，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504842861799_eca6668e.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504842862007_bc302646.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504842861767_709caff1.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504842861905_30a7ae07.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504842874615_600c48da.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504842874412_f8d754d2.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504842874440_9cf35f8c.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504842874586_47f9dd62.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504842874125_b533422c.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1514432317060_5ae8cd61.jpg，\t[{”name”:”米家智能插线板_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504843176413_61893fad.jpg”，”addTime”:1514432299408，”size”:”1.76M”}，{”name”:”米家智能插线板_海报_60x90.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504849247969_d84d68ff.jpg”，”addTime”:1514432299409，”size”:”14.41M”}，{”name”:”米家智能插线板_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504849259622_5f89bfa8.jpg”，”addTime”:1514432299409，”size”:”18.15M”}，{”name”:”米家智能插线板_传单_A5_背面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504854364587_6cbb03f9.jpg”，”addTime”:1514432299409，”size”:”286.82K”}，{”name”:”米家智能插线板_传单_A5_背面.psd”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504856827989_d236b8e5.psd”，”addTime”:1514432299409，”size”:”418.31M”}，{”name”:”米家智能插线板全部文件.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504864935297_1583e347.zip”，”addTime”:1514432299409，”size”:”184.66M”}，{”name”:”米家智能插线板源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1514432321889_fb83727a.ai”，”addTime”:1514432322125，”size”:”2.2M”}]\t1504843458310\t1514432330164\t1\t1\t易拉宝，传单，海报，灯箱\t1\n" +
+//                "90\t红米Note 4X\t，10，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504843284607_c4197ec2.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504843284604_2cb9bd69.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504843284621_70c01ec6.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504843284615_b5e5af94.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504843284609_afca76fe.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504843298033_bca8aa9f.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504843298121_7bde70f5.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504843298039_7668b655.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504843298029_3f5736f3.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504843298035_779aa5d4.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1510633167967_ed856653.jpg，\t[{”name”:”红米note4X_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504843315811_4a7266cf.jpg”，”addTime”:1510633134791，”size”:”4.13M”}，{”name”:”红米Note4X_海报_60x90.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504843315765_024460ab.jpg”，”addTime”:1510633134791，”size”:”14.51M”}，{”name”:”红米note4X_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504843316239_2456a106.jpg”，”addTime”:1510633134791，”size”:”27.7M”}，{”name”:”小米手机拍人更美_传单_A5_背面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504843345791_80706223.jpg”，”addTime”:1510633134791，”size”:”17.86M”}，{”name”:”小米手机拍人更美A5传单.psd”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504848844781_19bd279e.psd”，”addTime”:1510633134791，”size”:”701.04M”}，{”name”:”红米Note4X_全部文件.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504849287376_4075b357.zip”，”addTime”:1510633134791，”size”:”449.14M”}，{”name”:”红米Note4X灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510633175490_d00bb074.ai”，”addTime”:1510633178299，”size”:”72.68M”}]\t1504844672609\t1510633186231\t1\t1\t传单、海报、易拉宝、灯箱\t1\n" +
+//                "91\t米家iHealth血压计\t，11，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504844906227_fea066e3.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504844907337_09bdf449.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504844909574_ce80e07d.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504844905096_e08be2fa.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504844914283_118aeffb.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504844914743_80763e9e.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504844914007_c00faf1b.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504844914094_5222d707.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504845082127_4b20bb13.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1510799040399_e02661de.jpg，\t[{”name”:”米家Ihealth血压计_海报_60x90.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504845402057_26159c33.jpg”，”addTime”:1510799011170，”size”:”13.9M”}，{”name”:”米家iHealth血压计_传单_A5_背面.JPG”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504854174637_fefeb80c.jpg”，”addTime”:1510799011170，”size”:”436.76K”}，{”name”:”米家Ihealth血压计_传单_A5_正面.JPG”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504854180894_eb35d802.jpg”，”addTime”:1510799011170，”size”:”2.32M”}，{”name”:”米家Ihealth血压计_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504854196059_cb6ce8ec.jpg”，”addTime”:1510799011170，”size”:”16.33M”}，{”name”:”米家iHealth血压计全部文件的.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504864659236_18a4bc46.zip”，”addTime”:1510799011170，”size”:”123.56M”}，{”name”:”米家iHealth血压计_传单_A5_背面.PSD”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504864706273_d61cd099.psd”，”addTime”:1510799011170，”size”:”266.86M”}，{”name”:”米家iHealth血压计灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510799046606_a847fe97.ai”，”addTime”:1510799047188，”size”:”6.77M”}]\t1504845501975\t1510799061329\t1\t1\t易拉宝，传单，海报，灯箱\t1\n" +
+//                "92\t红米4X\t，10，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504849818753_e537e86e.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504849818764_a9be56a5.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504849818766_5fa14258.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504849818768_6e33a607.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504849828151_de04cf3d.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504849828156_3c9a8131.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504849828157_8042b974.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504849828156_2b1fae90.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504849828161_2b20ada7.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1510633204750_f532f4a6.jpg，\t[{”name”:”红米4X_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504849848249_2d86f55e.jpg”，”addTime”:1510633190981，”size”:”3.15M”}，{”name”:”小米手机拍人更美_传单_A5_背面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504849848807_e6dc6d45.jpg”，”addTime”:1510633190981，”size”:”17.86M”}，{”name”:”红米4X_海报_60x90.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504849859237_734e7817.jpg”，”addTime”:1510633190981，”size”:”18.39M”}，{”name”:”红米4X_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504849859359_a4de82cc.jpg”，”addTime”:1510633190981，”size”:”22.89M”}，{”name”:”小米手机拍人更美A5传单.psd”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504849886917_ebdf209a.psd”，”addTime”:1510633190981，”size”:”701.04M”}，{”name”:”红米4X_全部文件.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504850027225_65cd1c98.zip”，”addTime”:1510633190981，”size”:”447.06M”}，{”name”:”红米4X灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510633220755_8d4d45d2.ai”，”addTime”:1510633223743，”size”:”125.89M”}]\t1504850119317\t1510633226757\t1\t1\t传单、海报、易拉宝、灯箱\t1\n" +
+//                "93\t红米4A\t，10，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504850334836_df348041.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504850334835_8eefe8b4.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504850334836_379b604a.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504850334835_5fb56013.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504850343384_ed62a8f1.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504850343386_7fd3541c.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504850343385_994f32f1.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504850343384_25e6eb52.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504850343388_6793661f.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1510633270969_04d9fca6.jpg，\t[{”name”:”红米4A_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504850352107_97ab1579.jpg”，”addTime”:1510633234372，”size”:”2.88M”}，{”name”:”小米手机拍人更美_传单_A5_背面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504850352568_d22fc226.jpg”，”addTime”:1510633234372，”size”:”17.86M”}，{”name”:”红米4A_海报_60x90.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504850386959_0e296520.jpg”，”addTime”:1510633234372，”size”:”17.96M”}，{”name”:”红米4A_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504850387285_e2eef7ac.jpg”，”addTime”:1510633234372，”size”:”27.27M”}，{”name”:”小米手机拍人更美_A5传单_源文件.psd.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504865798613_1be7f171.psd.zip”，”addTime”:1510633234372，”size”:”400.61M”}，{”name”:”红米4A_全部文件.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504865851474_50115c3b.zip”，”addTime”:1510633234372，”size”:”438.49M”}，{”name”:”红米4A灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510633266664_c39f0e5f.ai”，”addTime”:1510633269536，”size”:”72.15M”}]\t1504850398033\t1510633274562\t1\t1\t传单、海报、易拉宝、灯箱\t1\n" +
+//                "94\t小米电视\t，11，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504853115805_e96836ad.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504853115806_96b58fff.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504853115796_0548885e.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504853131126_25139dc6.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504853131131_7e821828.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504853131128_6a7b1235.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1512373931891_b0164025.jpg，\t[{”name”:”小米电视_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504853150865_e8c7deaa.jpg”，”addTime”:1512373908254，”size”:”5.46M”}，{”name”:”小米智能家居_传单_A5_背面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504853168251_fce70112.jpg”，”addTime”:1512373908254，”size”:”18.08M”}，{”name”:”小米电视灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1512373937383_654a0b1c.ai”，”addTime”:1512373943140，”size”:”17.23M”}]\t1504853216112\t1512373945859\t1\t1\t传单、灯箱\t1\n" +
+//                "95\t知吾煮抗摔玻璃保鲜盒\t，12，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504853432709_396a8973.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504853433184_3b72fd01.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504853433177_f0258e6d.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504853442295_c959258b.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504853442138_89cb3ef0.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504853442535_844007ba.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504853443039_c86e13d1.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504853442508_db352b36.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1514432242658_68177781.jpg，\t[{”name”:”知吾煮抗摔玻璃保鲜盒_传单_A5_背面.JPG”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504853512879_f21f9111.jpg”，”addTime”:1514432229360，”size”:”286.82K”}，{”name”:”知吾煮抗摔玻璃保鲜盒_传单_A5_正面.JPG”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504853514061_d00a9d79.jpg”，”addTime”:1514432229360，”size”:”2.61M”}，{”name”:”知吾煮抗摔玻璃保鲜盒_海报_60x90.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504853582146_d265f186.jpg”，”addTime”:1514432229360，”size”:”15.19M”}，{”name”:”知吾煮抗摔玻璃保鲜盒_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504853630156_65f207d9.jpg”，”addTime”:1514432229361，”size”:”22.47M”}，{”name”:”知吾煮抗摔玻璃保鲜盒全部文件的.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504864984668_51e4a975.zip”，”addTime”:1514432229361，”size”:”189.81M”}，{”name”:”知吾煮抗摔玻璃保鲜盒_传单_A5_背面.PSD”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504865044499_4459fe82.psd”，”addTime”:1514432229361，”size”:”418.31M”}，{”name”:”知吾煮抗摔玻璃保鲜盒灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1514432248295_dab44284.ai”，”addTime”:1514432249181，”size”:”9.99M”}]\t1504854002107\t1514432290445\t1\t1\t易拉宝，传单，海报，灯箱\t1\n" +
+//                "96\t小米移动电源\t，12，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504857156167_cc2a7129.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504857156175_6ffac844.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504857156176_b2ed6425.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504857156174_2ac246a8.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504857156172_5b2be97c.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504857156170_d5632830.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504857156547_3ac5d6aa.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504857156549_83e2856f.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504857156571_30fd956d.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504857169524_3bbe6886.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504857169534_e2b4c547.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504857169542_d8492a0d.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504857169542_632b42be.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504857169536_81a03ca0.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1511944878170_7b41f4d6.jpg，\t[{”name”:”10000mAh小米移动电源2_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504857181186_779f4c1a.jpg”，”addTime”:1511944870512，”size”:”2.24M”}，{”name”:”10000mAh小米移动电源2_海报_60x90.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504857181693_2e20b71a.jpg”，”addTime”:1511944870512，”size”:”17.31M”}，{”name”:”10000mAh小米移动电源2_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504857181962_cb4de8fb.jpg”，”addTime”:1511944870512，”size”:”24.17M”}，{”name”:”10000mAh小米移动电源2灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1511944895507_3ad887c4.ai”，”addTime”:1511944901401，”size”:”47.95M”}]\t1504857195339\t1511944914495\t1\t1\t传单、海报、易拉宝、灯箱\t1\n" +
+//                "97\t90分旅行箱\t，12，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504858964897_1644aa99.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504858964906_a4a3221d.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504858964914_6a94cbdc.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504858964919_d259628c.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504858964920_f24a7720.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504858979080_c17ef850.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504858979082_69763da5.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504858979085_644cfd35.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504858979086_f8f9c3f6.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504858979086_e68da1a8.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1511343924231_4f675493.jpg，\t[{”name”:”90分旅行箱_传单_A5_正面.JPG”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504860418398_7fbe5eed.jpg”，”addTime”:1530084135209，”size”:”16.53M”}，{”name”:”90分旅行箱_海报_60x90 .jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504860419270_71929d83.jpg”，”addTime”:1530084135210，”size”:”20.22M”}，{”name”:”90分旅行箱_传单_A5_背面.JPG”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504860418730_6b72eef2.jpg”，”addTime”:1530084135210，”size”:”24.08M”}，{”name”:”90分旅行箱_易拉宝_80x180 .jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504860419350_f0ba7563.jpg”，”addTime”:1530084135210，”size”:”26.92M”}，{”name”:”90分旅行箱_全部文件的.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504867592702_61cbf095.zip”，”addTime”:1530084135210，”size”:”205.42M”}，{”name”:”90分旅行箱_传单_A5_背面.PSD”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504867597629_4b0aac3a.psd”，”addTime”:1530084135210，”size”:”418.31M”}，{”name”:”90分旅行箱灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1511343933137_20da0697.ai”，”addTime”:1530084135210，”size”:”43.56M”}，{”name”:”90旅行箱娱乐宣传视频.mp4”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1530084216368_939df8a4.mp4”，”addTime”:1530084219255，”size”:”7.59M”}]\t1504859530265\t1530084222025\t1\t1\t 易拉宝，传单，海报，灯箱\t1\n" +
+//                "98\t米家全景相机套装\t，11，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859627667_131ada1b.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859627688_3617e342.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859627694_a7a2f5ca.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859627693_48142192.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859627692_ca88be56.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859627687_2267dd59.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859627958_74b908f2.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859671985_7d27d82f.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859671989_330eb3c1.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859671988_d57d25e5.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859671986_8b8932c2.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859671987_5dde9408.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1510712875266_8761f508.jpg，\t[{”name”:”米家全景相机_传单_A5_背面.JPG”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504860363420_9be541c7.jpg”，”addTime”:1510798894090，”size”:”18.08M”}，{”name”:”米家全景相机_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504860363534_f7f24f15.jpg”，”addTime”:1510798894090，”size”:”16.66M”}，{”name”:”米家全景相机_海报_60x90 .jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504860364053_ac52ee3a.jpg”，”addTime”:1510798894090，”size”:”19.85M”}，{”name”:”米家全景相机_易拉宝_80x180 .jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504860364328_e335d13b.jpg”，”addTime”:1510798894090，”size”:”26.75M”}，{”name”:”米家全景相机_全部文件的.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504867374286_2f386f7e.zip”，”addTime”:1510798894090，”size”:”140.65M”}，{”name”:”米家全景相机_传单_A5_背面.PSD”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504867377709_cffb2ec7.psd”，”addTime”:1510798894090，”size”:”266.86M”}，{”name”:”米家全景相机套装灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510798913555_67326b2c.ai”，”addTime”:1510798915185，”size”:”20.63M”}]\t1504859776448\t1510798917955\t1\t1\t易拉宝，传单，海报、灯箱\t1\n" +
+//                "99\t米家飞利浦智睿台灯二代\t，11，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859780103_ca19193a.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859780113_6b827138.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859780116_d737fc07.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859780121_80d56879.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859789488_a311985f.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859789487_343f77f9.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859789489_95ab8675.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859789488_d613b306.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859789502_31b089f7.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1510915535336_badf80f1.jpg，\t[{”name”:”米家飞利浦智睿台灯二代_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504859797168_145d0afd.jpg”，”addTime”:1510915522402，”size”:”1.36M”}，{”name”:”米家飞利浦智睿台灯二代_海报_60x90.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504859797458_27b6c10a.jpg”，”addTime”:1510915522403，”size”:”12.45M”}，{”name”:”米家飞利浦智睿台灯二代_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504859798105_25b1e87b.jpg”，”addTime”:1510915522403，”size”:”32.49M”}，{”name”:”小米智能家居_传单_A5_背面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504859831212_8849c4ac.jpg”，”addTime”:1510915522403，”size”:”18.08M”}，{”name”:”米家飞利浦智睿台灯二代灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510915542274_b03012c7.ai”，”addTime”:1510915543421，”size”:”8.0M”}]\t1504859817626\t1510915558918\t1\t1\t传单，海报，易拉宝，灯箱\t1\n" +
+//                "100\t米兔故事机\t，11，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859919624_1eff614e.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859919620_65433e1a.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859919629_f3f78cad.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859919642_331d2a44.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859919662_664a7959.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859919654_ad386ced.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859945745_2bae72d4.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859945748_5c8a498d.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859945748_d0bbbc79.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859945747_a3e30659.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504859945746_6191dc3f.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1510712915905_d86b9f5d.jpg，\t[{”name”:”米兔故事机_传单_A5_正面 .jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504860299520_ea47db64.jpg”，”addTime”:1510798926379，”size”:”2.44M”}，{”name”:”米兔故事机_传单_A5_背面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504860301290_57cd1fd7.jpg”，”addTime”:1510798926379，”size”:”18.08M”}，{”name”:”米兔故事机_海报_60x90 .jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504860301492_8dfb5e35.jpg”，”addTime”:1510798926380，”size”:”19.33M”}，{”name”:”米兔故事机_易拉宝_80x180 .jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504860302036_fb5390ab.jpg”，”addTime”:1510798926380，”size”:”24.59M”}，{”name”:”米兔故事机_全部文件.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504867465575_7bb19565.zip”，”addTime”:1510798926380，”size”:”133.88M”}，{”name”:”米兔故事机_传单_A5_背面.psd”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504867467542_3497a12f.psd”，”addTime”:1510798926380，”size”:”266.86M”}，{”name”:”米兔故事机灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510798944124_0daa6a0e.ai”，”addTime”:1510798945243，”size”:”13.38M”}]\t1504860009910\t1510798948129\t1\t1\t易拉宝，传单，海报、灯箱\t1\n" +
+//                "101\t米家扫地机器人\t，11，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504860481580_507c36f3.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504860481577_b0f4a02d.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504860481573_2820e73a.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504860481579_df3fc86f.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504860481575_e45ddbff.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504860481584_2e9ebd17.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504860481825_a488e746.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504860481840_d235f9ae.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504860522303_329bad16.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504860522310_581fce5d.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504860522305_96129d00.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504860522304_c6b47483.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504860522304_de9c2cae.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1510798973511_c8fff835.jpg，\t[{”name”:”米家扫地机器人_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504860549439_0714d9e2.jpg”，”addTime”:1510798955228，”size”:”17.72M”}，{”name”:”米家扫地机器人_海报_60x90 .jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504860549847_359905bb.jpg”，”addTime”:1510798955228，”size”:”26.78M”}，{”name”:”米家扫地机器人_易拉宝_80x180 .jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504860551321_83444a55.jpg”，”addTime”:1510798955228，”size”:”52.45M”}，{”name”:”米家扫地机器人_传单_A5_背面.JPG”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504860604092_6f5af51b.jpg”，”addTime”:1510798955229，”size”:”18.08M”}，{”name”:”米家扫地机器人_全部文件的.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504867526802_20058c34.zip”，”addTime”:1510798955229，”size”:”177.31M”}，{”name”:”米家扫地机器人_传单_A5_背面.PSD”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504867529362_1f6c01dc.psd”，”addTime”:1510798955229，”size”:”266.86M”}，{”name”:”米家扫地机器人灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510798981912_0961cf68.ai”，”addTime”:1510798982351，”size”:”4.99M”}]\t1504860629147\t1510799003373\t1\t1\t易拉宝，传单，海报，灯箱\t1\n" +
+//                "102\t贝医生巴氏牙刷\t，12，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504860700740_5ab99801.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504860700774_dfd6f2b6.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504860700784_a37e3333.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504860700785_d855586c.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504860700780_72f43898.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504860700786_cf25fcce.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504860737765_46225ae5.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504860737763_caa2e6fd.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504860737767_c11ef427.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504860737768_92736371.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504860737766_30d81116.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1511948241202_8ce5c669.jpg，\t[{”name”:”贝医生巴氏牙刷_传单_A5_正面.JPG”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504860763644_cf7b306c.jpg”，”addTime”:1511948231365，”size”:”610.05K”}，{”name”:”贝医生巴氏牙刷_海报_60x90.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504860763791_4a33ad39.jpg”，”addTime”:1511948231365，”size”:”2.04M”}，{”name”:”贝医生巴氏牙刷_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504860763814_c5be503e.jpg”，”addTime”:1511948231365，”size”:”3.94M”}，{”name”:”贝医生巴氏牙刷_传单_A5_背面.JPG”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504860764606_7f50e8bd.jpg”，”addTime”:1511948231365，”size”:”24.08M”}，{”name”:”贝医生巴氏牙刷_全部文件的.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504867647484_9e4824d8.zip”，”addTime”:1511948231365，”size”:”182.44M”}，{”name”:”贝医生巴氏牙刷_传单_A5_背面.PSD”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504867653339_0685c481.psd”，”addTime”:1511948231366，”size”:”418.31M”}，{”name”:”贝医生巴氏牙刷灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1511948249459_98181804.ai”，”addTime”:1511948249860，”size”:”3.83M”}]\t1504860830217\t1511948275616\t1\t1\t易拉宝，海报， 传单，灯箱\t1\n" +
+//                "103\tyeelight台灯\t，11，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504861921241_9458db1e.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504861921250_b21345a2.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504861921249_c60ce376.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504861939010_36137cdf.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504861939021_150fafeb.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504861939023_1ab91d51.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504861939021_be8cf8dc.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504861939023_40434a61.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1510799223679_a35d6055.jpg，\t[{”name”:”yeelight台灯_传单_A5_背面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504862054933_ced96fdc.jpg”，”addTime”:1510799189983，”size”:”302.92K”}，{”name”:”米家智能台灯_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504862054982_67b791d1.jpg”，”addTime”:1510799189983，”size”:”1.28M”}，{”name”:”米家智能台灯_海报_60x90.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504862055913_c0cf102b.jpg”，”addTime”:1510799189983，”size”:”13.45M”}，{”name”:”米家智能台灯_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504862055948_27a18d2b.jpg”，”addTime”:1510799189983，”size”:”15.71M”}，{”name”:”yeelight台灯_传单_A5_背面.psd”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504862063853_233d074c.psd”，”addTime”:1510799189983，”size”:”266.86M”}，{”name”:”yeelight台灯_全部文件.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504862098566_c1517e3f.zip”，”addTime”:1510799189984，”size”:”116.6M”}，{”name”:”yeelight台灯灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510799231616_2aa6d15e.ai”，”addTime”:1510799232523，”size”:”10.87M”}]\t1504862131337\t1510799249516\t1\t1\t易拉宝、传单、海报、灯箱\t1\n" +
+//                "104\t车贴\t，13，\t\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504862080767_8e19f2fe.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504862080773_184d8001.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1504862080769_2f69c63d.jpg，\t[{”name”:”效果图3.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504862114700_a2982d47.jpg”，”addTime”:1504862115334，”size”:”1.0M”}，{”name”:”效果图1.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504862114722_37b5218f.jpg”，”addTime”:1504862115354，”size”:”1.13M”}，{”name”:”车贴3.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504862114743_42e1c14e.ai”，”addTime”:1504862115408，”size”:”1.02M”}，{”name”:”车贴1.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504862114741_5007db34.ai”，”addTime”:1504862115471，”size”:”1.04M”}，{”name”:”效果图2.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504862114740_63ae6344.jpg”，”addTime”:1504862115484，”size”:”1.4M”}，{”name”:”车贴2.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1504862114747_fafadaae.ai”，”addTime”:1504862115811，”size”:”1.86M”}]\t1504862165953\t1504862165953\t1\t1\t车贴\t1\n" +
+//                "105\t视频\t，13，14，\t\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505035959572_2c3ea1b6.jpg，\t[{”name”:”小米5c.mp4”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1505034793263_8f81cb9c.mp4”，”addTime”:1526886190328，”size”:”2.03M”}，{”name”:”小米6.mp4”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1505034828167_ab22997f.mp4”，”addTime”:1526886190328，”size”:”8.27M”}，{”name”:”小米电视4-薄.mp4”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1505034845897_abbac382.mp4”，”addTime”:1526886190328，”size”:”8.38M”}，{”name”:”小米电视4-智能家庭.mp4”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1505034878769_e1fd06ca.mp4”，”addTime”:1526886190329，”size”:”6.98M”}，{”name”:”红米系列.mp4”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1505034948644_f3aef65d.mp4”，”addTime”:1526886190329，”size”:”21.57M”}，{”name”:”小米电视4-薄.mp4”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1505034845897_abbac382.mp4”，”addTime”:1526886190328，”size”:”8.38M”}，{”name”:”max2.mp4”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1505035007046_ca4109e2.mp4”，”addTime”:1526886190329，”size”:”4.01M”}，{”name”:”小米MIX.mp4”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1505035021376_0056f7ae.mp4”，”addTime”:1526886190329，”size”:”8.38M”}，{”name”:”note2-梁朝伟.mp4”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1505035038057_d5a1bb5a.mp4”，”addTime”:1526886190329，”size”:”3.06M”}，{”name”:”note2.mp4”，”url”:”undefined”，”addTime”:1526886190329，”size”:”9.23M”}，{”name”:”小米电视4-薄的背后.mp4”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1505035102159_15521641.mp4”，”addTime”:1526886190329，”size”:”29.68M”}，{”name”:”2016品牌.mp4”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1505035272860_b1fffa85.mp4”，”addTime”:1526886190330，”size”:”66.96M”}，{”name”:”我们的时代.mov”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1505035774706_f74fc787.mov”，”addTime”:1526886190330，”size”:”49.2M”}，{”name”:”小米服务.mp4”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1505035850024_a1073c2a.mp4”，”addTime”:1526886190330，”size”:”216.02M”}，{”name”:”人脸解锁.mp4”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1505199518074_7ab6f9ce.mp4”，”addTime”:1526886190330，”size”:”783.48K”}，{”name”:”小米Note 3 外观工艺视频.mp4”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1505199518186_17b951c4.mp4”，”addTime”:1526886190330，”size”:”4.73M”}，{”name”:”小米Note 3 与吴亦凡.mp4”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1505199520453_a9ea12ea.mp4”，”addTime”:1526886190330，”size”:”18.48M”}，{”name”:”一场关于小米MIX 2 极致工艺的巅峰对话.mp4”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1505199729636_ae916973.mp4”，”addTime”:1526886190330，”size”:”23.68M”}，{”name”:”看《14 个真实米粉眼中的小米MIX 2》.mp4”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1505199729431_e0ab4682.mp4”，”addTime”:1526886190330，”size”:”22.69M”}，{”name”:”小爱音箱_智能生活场景.mp4”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1516763663400_a695aec9.mp4”，”addTime”:1526886190330，”size”:”12.13M”}，{”name”:”小爱音箱视频合集.mp4”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1516763663504_8396ea43.mp4”，”addTime”:1526886190330，”size”:”16.9M”}，{”name”:”红米Note5.mp4”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1521199214733_5ab08a31.mp4”，”addTime”:1526886190330，”size”:”141.52M”}，{”name”:”小米MIX2S视频合集.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1522204391649_981dcb48.zip”，”addTime”:1526886190331，”size”:”266.03M”}，{”name”:”6X-外观视频-50M.mp4”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1524645186255_70d05e3e.mp4”，”addTime”:1526886190331，”size”:”41.8M”}，{”name”:”6x_吴亦凡亲身示范_联合logo_字幕.mp4”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1524645676775_6955dc47.mp4”，”addTime”:1526886190331，”size”:”14.42M”}，{”name”:”小爱mini视频.mp4”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1526886218346_479236d2.mp4”，”addTime”:1526886220742，”size”:”29.41M”}]\t1505035978862\t1526886237252\t1\t1\t小米品牌、服务、产品宣传视频\t1\n" +
+//                "106\t墙体海报\t，13，\t\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505100141122_ebc46b86.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505101511967_05e046ea.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1506392701305_38f57599.jpg，\t[{”name”:”净水器海报.PSD”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1505100095686_94b16e09.psd”，”addTime”:1522812991284，”size”:”43.92M”}，{”name”:”手机墙体海报_横版.PSD”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1505101414313_63fc9c0f.psd”，”addTime”:1522812991284，”size”:”2.64M”}，{”name”:”手机墙体海报_方版.PSD”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1505101406283_686aeb3b.psd”，”addTime”:1522812991284，”size”:”21.51M”}，{”name”:”红米手机用得久，价格只要599.psd”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1506392688966_8150643c.psd”，”addTime”:1522812991284，”size”:”2.65M”}]\t1505101516095\t1522812994519\t1\t1\t红底白字墙体广告，建议油漆或喷绘布\t1\n" +
+//                "107\t小米MIX2\t，10，14，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505122962104_0c0546f0.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505122962104_26e5f153.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505122962105_23b3a1d3.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505122962096_87ec0e86.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505122962099_39458b9f.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505122962098_49be9338.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1507518482503_0629ce0f.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1507518482503_3c4e2790.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1507518482507_8b544184.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1510303924304_6f99cd25.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1510303924280_6678c0e7.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1510303924262_1c7c74a3.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1510303924260_42e15aa9.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1510303924260_703f930e.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1510303924261_f93a8b71.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1512383819451_2dc0f0b5.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1512383824406_f4b3f84a.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1514284267866_e90622b4.jpg，\t[{”name”:”小米MIX2价签.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1505206256428_456481d8.zip”，”addTime”:1514283656546，”size”:”2.42M”}，{”name”:”小米MIX2_传单_A5_背面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510304066039_2940fdec.jpg”，”addTime”:1514283656546，”size”:”17.86M”}，{”name”:”小米MIX2_全陶瓷_海报_60x90.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510304066369_6b8c12ce.jpg”，”addTime”:1514283656546，”size”:”17.31M”}，{”name”:”小米MIX2_全陶瓷_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510304066746_cfba10c5.jpg”，”addTime”:1514283656546，”size”:”19.82M”}，{”name”:”小米MIX2_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510304067260_94b2c095.jpg”，”addTime”:1514283656546，”size”:”23.65M”}，{”name”:”小米MIX2_海报_60x90.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510304067323_68142105.jpg”，”addTime”:1514283656546，”size”:”29.12M”}，{”name”:”小米MIX2_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510304070039_d56f63d3.jpg”，”addTime”:1514283656546，”size”:”62.03M”}，{”name”:”小米MIX2_传单_A5_背面.psd”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510304089091_38a717ec.psd”，”addTime”:1514283656546，”size”:”735.47M”}，{”name”:”小米MIX2_全部文件.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510304807490_fc8bce66.zip”，”addTime”:1514283656547，”size”:”520.79M”}，{”name”:”小米MIX2灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1512383836947_fd43b96d.ai”，”addTime”:1514283656547，”size”:”77.41M”}，{”name”:”小米MIX2白色全陶瓷灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1512383853963_a7f48119.ai”，”addTime”:1514283656547，”size”:”180.88M”}，{”name”:”小米MIX2灯箱_场景源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1514283690353_20abc125.ai”，”addTime”:1514283764983，”size”:”888.65M”}]\t1505123802043\t1514284273556\t1\t1\t易拉宝，传单，海报，价签，灯箱\t1\n" +
+//                "108\t小米Note 3\t，10，14，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505125668386_647cd316.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505125668386_554df025.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505125668387_560225fb.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505125668381_a67fe10a.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505125668385_c5e3723b.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505125668379_9eff8838.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505125668635_8201deae.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505126335172_9956a861.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505126335178_578d9fbc.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505273713146_7a8e2405.png，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505125688631_252f16b3.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505125688634_447e27bc.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505125750262_15871915.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505125756529_2d4198ce.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505125769813_cd2830d8.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505125774493_d04c63e8.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505125790774_412ea54f.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505125790780_d7b12237.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505125794851_a7edb69e.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1509589221626_d0401603.jpg，\t[{”name”:”小米注3_传单_A5_正面_红色.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1505125699079_5a84a3a0.jpg”，”addTime”:1509589080622，”size”:”3.4M”}，{”name”:”小米注3_传单_A5_正面_蓝色.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1505125807105_66e596d4.jpg”，”addTime”:1509589080622，”size”:”3.7M”}，{”name”:”小米注3_海报_60x90_红.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1505125818524_699b8556.jpg”，”addTime”:1509589080622，”size”:”21.58M”}，{”name”:”小米注3_海报_60x90_蓝.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1505125836571_cb0b625c.jpg”，”addTime”:1509589080623，”size”:”25.88M”}，{”name”:”小米注3_易拉宝_80x180_红.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1505125860838_ea25b47b.jpg”，”addTime”:1509589080623，”size”:”35.7M”}，{”name”:”小米注3_易拉宝_80x180_蓝.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1505125887910_2bdab69c.jpg”，”addTime”:1509589080623，”size”:”40.96M”}，{”name”:”小米手机拍人更美_传单_A5_背面.JPG”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1505126119265_dd826135.jpg”，”addTime”:1509589080623，”size”:”17.86M”}，{”name”:”小米手机拍人更美_A5传单_源文件.psd.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1505126174988_57c9f20f.psd.zip”，”addTime”:1509589080623，”size”:”400.61M”}，{”name”:”小米注3价签的.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1505206204501_47ee1984.zip”，”addTime”:1509589080623，”size”:”2.01M”}，{”name”:”小米注3_机型对比易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1505273776638_2cad4612.jpg”，”addTime”:1509589080623，”size”:”62.62M”}，{”name”:”小米注3_人形立牌.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1508406178604_46e6993f.zip”，”addTime”:1509589080623，”size”:”647.44M”}，{”name”:”小米Note3灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1509589201619_6ec3c279.ai”，”addTime”:1509589213252，”size”:”335.27M”}]\t1505125712815\t1509589252542\t1\t1\t传单，海报，易拉宝，人形立牌，产品价签，机型对比， 灯箱\t1\n" +
+//                "109\t小米笔记本Pro\t，11，14，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505129173038_3f1005a8.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505129172103_961547c0.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505129171808_f180c488.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505129173393_ad153aa0.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505129173270_692fba9f.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505129172840_9ba13309.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505129172340_c06ff330.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505129172688_f3e22a39.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505129172841_850ec72e.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505129723182_24490dab.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505129722672_eb518d62.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505129724214_939b77f9.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505129724497_76b0d720.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1505129724861_b54c526f.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1510712834495_eb870823.jpg，\t[{”name”:”小米笔记本Pro_海报_60x90cm.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1505129728267_c4918200.jpg”，”addTime”:1510798853427，”size”:”5.88M”}，{”name”:”小米笔记本Pro_DM单_A5.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1505129731475_e7db8ee5.jpg”，”addTime”:1510798853427，”size”:”11.18M”}，{”name”:”小米笔记本Pro_展架_80x180cm.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1505129786902_fbaff08d.jpg”，”addTime”:1510798853427，”size”:”19.08M”}，{”name”:”小米笔记本pro灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510798874008_37480d8d.ai”，”addTime”:1510798875427，”size”:”14.42M”}]\t1505130145858\t1510798878509\t1\t1\tDM单，海报，易拉宝、灯箱\t1\n" +
+//                "110\t小米AI音箱\t，11，14，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1506411202403_f12ce028.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1506411202408_39b7da9e.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1506411202401_b1333ec7.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1506411202410_1ad82f3a.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1506411202403_ccb6e3a8.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1506411202403_05db2dbb.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1506411236027_da72cb78.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1506411253991_92cf6e63.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1506411254003_0b8bbfb1.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1506411254007_bd79f1f9.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1506411254005_ae4ac6bb.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1506411254006_cbc0c3cc.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1510712795915_db697aa3.jpg，\t[{”name”:”小米AI音箱_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1506411284302_bad49848.jpg”，”addTime”:1510798803829，”size”:”16.31M”}，{”name”:”小米AI音箱_海报_60x90.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1506411284347_b90e3839.jpg”，”addTime”:1510798803829，”size”:”18.71M”}，{”name”:”小米AI音箱_易拉宝_80x180  .jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1506411284493_785f3c62.jpg”，”addTime”:1510798803829，”size”:”22.86M”}，{”name”:”小米AI音箱_传单_A5_背面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1506411283850_77c91dba.jpg”，”addTime”:1510798803829，”size”:”18.08M”}，{”name”:”小米AI音箱_传单_A5_背面.psd”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1506411291565_98dbd47b.psd”，”addTime”:1510798803830，”size”:”266.86M”}，{”name”:”小米AI音箱_全部文件.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1506411326452_567f5c66.zip”，”addTime”:1510798803830，”size”:”135.25M”}，{”name”:”小米AI音箱灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510798829619_ea8ddeeb.ai”，”addTime”:1510798830581，”size”:”7.86M”}]\t1506411574567\t1510798838184\t1\t1\t  传单、海报、易拉宝、灯箱\t1\n" +
+//                "112\t小米直供点门头规范beta2.5\t，13，14，\t\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1524727419677_292ce0ba.JPG，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1524727419682_15c16d1f.JPG，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1524727419684_425ac9b9.JPG，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1524727419687_5e7cc240.JPG，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1524727419690_c475face.JPG，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1524727419686_6b6efa2e.JPG，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1524727419787_07241f5d.JPG，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1524727419792_58d4eccd.JPG，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1524727419788_8aa48a79.JPG，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1524727419791_8eeecd15.JPG，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1524728999682_3f6cc955.JPG，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1524729009808_c3805029.JPG，\t[{”name”:”小米直供门头设计规范-1.0.pdf”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1524727434121_c4481a3e.0.pdf”，”addTime”:1524728878498，”size”:”4.51M”}，{”name”:”小米直供门头设计规范-1.0-附件文件：门头LOGO 组合.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1524727440438_763d8f5c.0-附件文件：门头LOGO 组合.ai”，”addTime”:1524728878499，”size”:”1.48M”}，{”name”:”小米直供门头设计规范-1.0-附件字体：方正兰亭黑GBK.TTF”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1524727440613_703b0a19.0-附件字体：方正兰亭黑GBK.TTF”，”addTime”:1524728878499，”size”:”7.4M”}]\t1508121249945\t1524729011776\t1\t1\t门头组成:小米VI+小米直供点+小米ID\t1\n" +
+//                "113\t小米产品手册\t，13，\t\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1508136955698_bf118fd8.png，\t[{”name”:”小米产品手册20171227.pdf”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1514341141255_7e9174a2.pdf”，”addTime”:1516951347576，”size”:”250.77M”}]\t1508137023379\t1516951390532\t1\t1\t小米产品手册PDF\t1\n" +
+//                "114\t 红米5A\t，10，14，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1511519935982_f286bbc8.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1511519935973_6c07010f.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1511519935975_31f98de0.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1511519935983_9c02850e.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1511519935982_64a9f980.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1511519935977_397e9f90.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1511519936053_83c16c73.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1511519936054_dd2c3e1e.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1511507656698_a38ec33a.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1511507656689_bb604416.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1511507656693_0e773250.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1511507656695_9ba4a14c.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1511507656695_6399aa56.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1511507656694_0dc4309d.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1511507656765_be48dd0a.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1511507674625_a75d91d6.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1511507690971_be4b0bf3.jpg，\t[{”name”:”红米5A价签.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1508156106158_6eea0739.zip”，”addTime”:1511519601805，”size”:”778.85K”}，{”name”:”小米5A灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510625741999_45f7492d.ai”，”addTime”:1511519601817，”size”:”395.84M”}，{”name”:”红米5A_传单_A5_背面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1511507771542_3639c05e.jpg”，”addTime”:1511519601817，”size”:”17.86M”}，{”name”:”红米5A_浅蓝色_海报_60x90.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1511507771736_2fc7950c.jpg”，”addTime”:1511519601817，”size”:”19.66M”}，{”name”:”红米5A_浅蓝色_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1511507772332_52592d3c.jpg”，”addTime”:1511519601817，”size”:”19.26M”}，{”name”:”红米5A_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1511507772450_9d162910.jpg”，”addTime”:1511519601817，”size”:”20.9M”}，{”name”:”红米5A_海报_60x90.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1511507772198_e9906eaf.jpg”，”addTime”:1511519601817，”size”:”30.67M”}，{”name”:”红米5A_浅蓝色_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1511507774198_25f38386.jpg”，”addTime”:1511519601817，”size”:”25.12M”}，{”name”:”红米5A_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1511507775092_6c13fa23.jpg”，”addTime”:1511519601817，”size”:”48.55M”}，{”name”:”红米5A_传单_A5_背面.psd”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1511507804656_5366ae21.psd”，”addTime”:1511519601817，”size”:”735.47M”}，{”name”:”红米5A_全部文件.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1511513865305_8a61e632.zip”，”addTime”:1511519601818，”size”:”516.1M”}]\t1508144113501\t1511519944960\t1\t1\t传单、海报、易拉宝、灯箱\t1\n" +
+//                "115\t米家空气净化器Pro\t，11，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1508325099094_07cbfef2.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1508325098866_449fdd7a.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1508325098862_bf707ab8.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1508325098827_fb099997.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1508325098831_271a6a1b.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1508325098828_1000f012.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1508325112664_fa8605bb.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1508325112659_ac6ebe47.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1508325112665_f18bbd4a.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1508325112664_72b88c17.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1510712738305_78530ecb.jpg，\t[{”name”:”米家空气净化器 PRO_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1508326353073_6e76f8cd.jpg”，”addTime”:1510798718354，”size”:”19.29M”}，{”name”:”米家空气净化器 PRO_海报_60x90.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1508326353234_998c2526.jpg”，”addTime”:1510798718354，”size”:”19.51M”}，{”name”:”米家空气净化器 PRO_传单_A5_背面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1508326353415_88b05e1c.jpg”，”addTime”:1510798718354，”size”:”18.08M”}，{”name”:”米家空气净化器 PRO_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1508326353292_5a3dbdc3.jpg”，”addTime”:1510798718354，”size”:”19.24M”}，{”name”:”米家空气净化器 PRO_传单_A5_背面.psd”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1508326359530_b5c5d836.psd”，”addTime”:1510798718354，”size”:”266.86M”}，{”name”:”米家空气净化器PRO_全部文件.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1508326390933_82b7e4bf.zip”，”addTime”:1510798718354，”size”:”140.37M”}，{”name”:”米家空气净化器pro灯箱源文件.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1510798790994_7226335d.ai”，”addTime”:1510798792724，”size”:”21.65M”}]\t1508325352308\t1510798798042\t1\t1\t传单、海报、易拉宝、灯箱\t1\n" +
+//                "116\t小米演示apk(按需下载使用)\t，13，14，\t\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1508464637731_a9ff1c0e.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1508464656209_fd005ac2.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1530155574189_f65d5092.png，\t[{”name”:”小米演示_电视端.apk”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1517197234721_b8f18217.apk”，”addTime”:1530155154653，”size”:”8.4M”}，{”name”:”GetSubId.apk”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1517197239541_c63b1a58.apk”，”addTime”:1530155154654，”size”:”502.36K”}，{”name”:”小米演示_直供点v1.6.pdf”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1530155178358_0858f994.6.pdf”，”addTime”:1530155185863，”size”:”16.86M”}]\t1508405876925\t1530155579233\t1\t1\t手机版会清除数据，电视版和笔记本版上线\t1\n" +
+//                "121\t小店店长名片&工牌\t，13，14，\t\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1511349290480_96402b3a.png，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1511349290482_bc2d7a80.png，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1511349290489_92860e4d.png，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1511349290479_833a090d.png，\t[{”name”:”小店店长名片.psd”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1511349029377_4f305959.psd”，”addTime”:1511349335357，”size”:”26.91M”}，{”name”:”小店店长工牌.eps”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1511349346783_06d6bd8b.eps”，”addTime”:1511349347026，”size”:”2.09M”}]\t1511349317282\t1511349350413\t1\t1\t请更换个人信息\t1\n" +
+//                "122\t直供点超市海报\t，13，14，\t\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1511839665093_3370001d.jpg，\t[{”name”:”直供点超市海报-模板.psd”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1511839710201_ceff2dbe.psd”，”addTime”:1511840525223，”size”:”285.89M”}]\t1511839805803\t1511840544439\t1\t1\t海报底部修改替换自己的联系方式和店铺地址\t1\n" +
+//                "123\t红米5/5Plus\t，10，14，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1512705286652_e75763c2.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1512705286651_7eb1d105.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1515059813779_417822fa.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1515059813779_29d1a315.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1515059813779_343603be.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1515059813779_b70ba38d.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1515059813779_f18e7f0e.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1515059813779_ae681253.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1515059813969_3ab6da6c.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1512705296552_df21a448.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1512705296575_091964f7.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1512705296571_00dc416b.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1512705296571_fc480d24.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1514193897447_8f9d51e7.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1516248811432_2d067cc3.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1516248815401_0f62c8f4.jpg，\t[{”name”:”红米5_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1512705341461_a4f825c3.jpg”，”addTime”:1516248949162，”size”:”44.9M”}，{”name”:”红米5_海报_60x90.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1512705343348_2a1b01ca.jpg”，”addTime”:1516248949162，”size”:”102.37M”}，{”name”:”红米5_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1512705344295_e38d4e70.jpg”，”addTime”:1516248949162，”size”:”99.69M”}，{”name”:”红米5_传单_A5_背面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1512708393196_82b0b0c0.jpg”，”addTime”:1516248949162，”size”:”17.86M”}，{”name”:”红米5_传单_A5_背面.psd”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1512708413701_9de36a0a.psd”，”addTime”:1516248949163，”size”:”735.47M”}，{”name”:”红米5全部文件.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1512710679875_e69784c2.zip”，”addTime”:1516248949163，”size”:”504.69M”}，{”name”:”红米5-plus手机外观视频.mp4”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1513064710390_799368d1.mp4”，”addTime”:1516248949163，”size”:”62.85M”}，{”name”:”红米手机品质工程师访谈.mp4”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1513064725715_967031d0.mp4”，”addTime”:1516248949163，”size”:”27.65M”}，{”name”:”红米5灯箱.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1514193835347_645d106d.ai”，”addTime”:1516248949163，”size”:”676.19M”}，{”name”:”红米5_红米5Plus价签.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1516248942661_48e54f27.ai”，”addTime”:1516248949163，”size”:”1.8M”}]\t1512709704556\t1516248980412\t1\t1\t传单、海报、易拉宝、价签、灯箱、视频\t1\n" +
+//                "124\t小米电视培训资料\t，11，14，\t\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1518076583579_d3567c84.png，\t[{”name”:”小米电视培训资料的.zip”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1519355534069_a1905ed1.zip”，”addTime”:1519716803107，”size”:”3.87M”}]\t1518076096665\t1519716807772\t1\t2\t小米电视培训资料，pdf文件\t1\n" +
+//                "125\t红米note5\t，10，14，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1521454600049_3f322355.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1521454600050_4ff18339.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1521454600053_6f8ec400.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1521454600056_822af4c8.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1521454600057_ac2841bd.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1521454600056_3c7dcf29.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1521454600134_aeee1fd0.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1521454600209_e5c9ee30.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1520924885864_c89ffebb.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1520937013611_ccd93005.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1520937013611_0c260416.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1520937013612_934e07c5.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1521198021900_1dea129a.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1521198021898_f49a9654.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1521198021896_8640252a.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1521198021898_76d8f3dd.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1521198090439_9b59f79f.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1521453444487_827ec746.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1521453458263_1d59c71e.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1521453472295_18174150.jpeg，\t[{”name”:”横幅3米.EPS”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1520924772130_da789f02.eps”，”addTime”:1521454563541，”size”:”5.24M”}，{”name”:”横幅7米.EPS”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1520924772066_b3b0d513.eps”，”addTime”:1521454563541，”size”:”5.18M”}，{”name”:”红米Note5_易拉宝_80x180 .jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1520937065492_d930f5b0.jpg”，”addTime”:1521454563541，”size”:”49.06M”}，{”name”:”红米Note5_传单_A5_正面 .jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1520937067236_15cf0025.jpg”，”addTime”:1521454563542，”size”:”100.49M”}，{”name”:”红米Note5_海报_60x90.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1520937067167_9d816d10.jpg”，”addTime”:1521454563542，”size”:”103.9M”}，{”name”:”红米Note5代言人版_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1521198241319_d6711086.jpg”，”addTime”:1521454563542，”size”:”3.13M”}，{”name”:”红米Note5_传单_A5_背面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1521198241961_ee300198.jpg”，”addTime”:1521454563542，”size”:”17.36M”}，{”name”:”红米Note5代言人版_海报_57x84.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1521198242692_1fd42719.jpg”，”addTime”:1521454563543，”size”:”34.65M”}，{”name”:”红米Note5代言人版_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1521198242623_d4baf63a.jpg”，”addTime”:1521454563543，”size”:”35.56M”}，{”name”:”红米Note5_传单_A5_背面 .psd”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1521198256863_f7bf3eba.psd”，”addTime”:1521454563543，”size”:”467.8M”}，{”name”:”红米Note5价签.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1521198330318_83fed676.ai”，”addTime”:1521454563543，”size”:”856.35K”}，{”name”:”红米5灯箱.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1521198583316_930a3bbb.ai”，”addTime”:1521454563544，”size”:”684.57M”}，{”name”:”台卡.eps”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1521453067359_e9cf6572.eps”，”addTime”:1521454563544，”size”:”2.62M”}]\t1520924901489\t1521454622459\t1\t1\t横幅7米、横幅3米、传单、海报、易拉宝、灯箱、价签、台卡、物料陈列示意图\t1\n" +
+//                "126\t小米MIX 2S\t，10，14，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1522144747407_a5670813.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1522144747407_ce771825.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1522144747405_91353689.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1522144747412_081ad82a.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1522144747407_c0ef419a.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1522144747407_aebfcacc.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1522144747573_3abcbd77.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1522144747591_d1c71db6.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1522144747573_f92815b3.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1522144787162_e8dac8e5.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1522144787175_364e1533.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1522144787180_b6bc9378.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1522144787181_3ba07e99.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1522144815412_a3b4ec2b.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1522150947516_e303cc71.jpg，\t[{”name”:”小米MIX2S_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1522144853148_c308a0c6.jpg”，”addTime”:1523258658165，”size”:”4.87M”}，{”name”:”小米MIX2S_传单_A5_背面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1522144853808_ae684f7d.jpg”，”addTime”:1523258658165，”size”:”17.36M”}，{”name”:”小米MIX2S_海报_57x84.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1522144855167_d88add22.jpg”，”addTime”:1523258658166，”size”:”55.32M”}，{”name”:”小米MIX2S_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1522144855687_77ec9da3.jpg”，”addTime”:1523258658166，”size”:”62.28M”}，{”name”:”小米MIX2S_传单_A5_背面 .psd”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1522144877196_af73f0ae.psd”，”addTime”:1523258658166，”size”:”467.8M”}，{”name”:”灯箱_1比2.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1522150472162_e91a24f5.ai”，”addTime”:1523258658166，”size”:”663.23M”}，{”name”:”灯箱_1比2.5.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1522150523166_a9506a64.5.ai”，”addTime”:1523258658166，”size”:”663.0M”}，{”name”:”灯箱_1比3.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1522150589024_c8e5f462.ai”，”addTime”:1523258658166，”size”:”663.1M”}，{”name”:”灯箱_2比1.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1522637601500_14506b91.ai”，”addTime”:1523258658166，”size”:”663.22M”}，{”name”:”小米MIX2S价签.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1522637648154_52f48807.ai”，”addTime”:1523258658166，”size”:”1.72M”}，{”name”:”灯箱_2点5比1.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1523258687493_11abfb81.ai”，”addTime”:1523258700979，”size”:”663.33M”}]\t1522145867333\t1523258731086\t1\t1\t传单、海报、易拉宝、灯箱、价签、\t1\n" +
+//                "127\t米粉节\t，13，14，\t\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1522408614990_ff3ef5a2.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1522408614952_b26cbb83.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1522408614952_be51f1ba.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1522408614990_85e51216.jpg，\t[{”name”:”米粉节_海报_57x84.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1522409022649_861033c7.jpg”，”addTime”:1522409332548，”size”:”5.28M”}，{”name”:”米粉节_传单_A5_背面_制直供点.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1522409023851_36f8ff50.jpg”，”addTime”:1522409332548，”size”:”17.53M”}，{”name”:”米粉节_传单_A5_背面_直供点 .psd”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1522409026689_0d05e114.psd”，”addTime”:1522409332548，”size”:”104.57M”}，{”name”:”米粉节_传单_A5_正面_直供点.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1522409025972_80d5e9c3.jpg”，”addTime”:1522409332548，”size”:”100.78M”}，{”name”:”米粉节_易拉宝_80x180_直供点 .jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1522409100921_ffb90f1d.jpg”，”addTime”:1522409332548，”size”:”53.43M”}，{”name”:”吊旗.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1522409339885_96dcf188.jpg”，”addTime”:1522409340205，”size”:”2.31M”}]\t1522409164265\t1522409370516\t1\t1\t海报、传单、易拉宝、吊旗、\t1\n" +
+//                "128\t小爱音箱mini\t，11，14，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1522651793439_b8f3238f.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1522651793441_d572d21c.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1522651793441_45c4a3c7.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1522651793443_f205df2a.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1522651793445_e139cca0.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1522651793446_4fbe49cf.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1522651793518_d58d1af6.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1522651793556_bbe50188.jpg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1522651815545_bb3f8320.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1522651815563_19bc07fb.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1522651815559_946259a7.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1522651815566_c06441bc.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1522652076158_88894473.jpg，\t[{”name”:”小爱音箱mini_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1522651857702_92b0f011.jpg”，”addTime”:1522652498945，”size”:”1.43M”}，{”name”:”小爱音箱mini_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1522651858263_9f24bd8c.jpg”，”addTime”:1522652498945，”size”:”9.7M”}，{”name”:”小爱音箱mini_海报_57x84.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1522651858352_f7e2bf74.jpg”，”addTime”:1522652498945，”size”:”12.33M”}，{”name”:”小爱音箱mini_传单_A5_背面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1522651858144_7549244a.jpg”，”addTime”:1522652498946，”size”:”18.08M”}，{”name”:”小爱音箱mini_传单_A5_背面.psd”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1522651866890_abfcb0fa.psd”，”addTime”:1522652498946，”size”:”266.86M”}，{”name”:”小爱音箱mini灯箱.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1522652699011_768bf88e.ai”，”addTime”:1522652703439，”size”:”13.67M”}]\t1522651963737\t1522652706379\t1\t1\t传单、海报、易拉宝、灯箱、\t1\n" +
+//                "129\t小米6X\t，10，14，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1524646392806_0a199f43.jpeg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1524646392803_616176d6.jpeg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1524646392837_f8ae4b6c.jpeg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1524646392824_bc6fd01d.jpeg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1524646392833_b7066a7d.jpeg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1524646405266_13b77a37.jpeg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1524646405283_86f0d77f.jpeg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1524646405280_bb4d04cb.jpeg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1524646405274_c4a01ed6.jpeg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1524646405253_10fdba12.jpeg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1524648056245_c5bdb953.jpeg，\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1524478541080_e7d1badc.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1524557039807_b2b0002e.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1524557039803_b8ac555c.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1524557039808_188cba44.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1524557039811_8965fe4e.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1524557039809_d21b270e.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1524557039810_8c8b9a36.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1524557040029_827d25fb.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1524559713708_1cf7b991.jpg，https://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1526631490083_0d6c2382.jpg，\t[{”name”:”条幅.AI”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1524478488655_0e0b9d85.ai”，”addTime”:1526631466192，”size”:”180.12K”}，{”name”:”小米6X_传单_A5_背面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1524481355372_baf79867.jpg”，”addTime”:1526631466192，”size”:”17.38M”}，{”name”:”小米6X_传单_A5_背面.psd”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1524481360057_cc9f4593.psd”，”addTime”:1526631466192，”size”:”139.71M”}，{”name”:”小米6X_红色版_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1524557184402_785c563e.jpg”，”addTime”:1526631466192，”size”:”4.33M”}，{”name”:”小米6X_红色版_海报_57x84.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1524557185596_17b9a95e.jpg”，”addTime”:1526631466192，”size”:”22.32M”}，{”name”:”小米6X_红色版_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1524557186807_fe420009.jpg”，”addTime”:1526631466192，”size”:”46.27M”}，{”name”:”小米6X_蓝色版_传单_A5_正面.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1524557207575_967f080e.jpg”，”addTime”:1526631466192，”size”:”3.14M”}，{”name”:”小米6X_蓝色版_海报_57x84.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1524557207897_ba68eb4b.jpg”，”addTime”:1526631466192，”size”:”16.73M”}，{”name”:”小米6X_蓝色版_易拉宝_80x180.jpg”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1524557208711_58d6bcff.jpg”，”addTime”:1526631466193，”size”:”37.81M”}，{”name”:”小米6X_人形立牌.tif”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1524559862043_43702743.tif”，”addTime”:1526631466193，”size”:”703.2M”}，{”name”:”小米6X_蓝色版_灯箱.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1524626408063_89e113d4.ai”，”addTime”:1526631466193，”size”:”329.91M”}，{”name”:”小米6X_红色版_竖版比例灯箱.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1524626708857_954c6901.ai”，”addTime”:1526631466193，”size”:”583.47M”}，{”name”:”小米6X_红色版_横版比例灯箱.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1524626934316_8c9ad679.ai”，”addTime”:1526631466193，”size”:”774.46M”}，{”name”:”小米6X价签.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1524723242499_4e446e42.ai”，”addTime”:1526631466193，”size”:”1.73M”}，{”name”:”小米6X_白色版_竖版比例灯箱.ai”，”url”:”https://cnbj1.fds.api.xiaomi.com/mici-zhigong/wuliao/1526631691956_3d09175c.ai”，”addTime”:1526631711816，”size”:”583.46M”}]\t1524478557062\t1526631900511\t1\t1\t条幅、传单、海报、易拉宝、人形立牌、灯箱、价签\t1\n" +
+//                "130\t 绿米智能家居\t，11，14，\t\thttps://cnbj1.fds.api.xiaomi.com/mici-zhigong/img/1526545680222_f085fd22.png，\t[{”name”:”产品及产品视频”，”url”:”https://eyun.baidu.com/s/3kWYMC6N”，”addTime”:1526545689885，”size”:”密码：6xj9”}，{”name”:”产品落地方案”，”url”:”https://eyun.baidu.com/s/3cZ6MXC”，”addTime”:1526545689885，”size”:”密码：eRYL”}]\t1524648664814\t1526545715108\t1\t1\t模型服务商由绿米科技推荐\t1\n" +
+//                "131\t小米8\t，10，14，\thttps://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1528079451865_54257b74.jpeg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1528079451861_4f60dd6e.jpeg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1528273898277_86e67a9d.jpeg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1528707317645_7944498a.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1528707317641_5c00cd91.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1528707317642_6b36414e.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1528707317645_2a8441da.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1528707317644_744b193d.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1528707317662_5796f987.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1528707317912_0c57002f.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1528707317914_dff780f0.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1528707317916_a83760c1.jpg，\thttps://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1527761572632_ea4ad1d9.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1527761572563_2f333c9e.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1527761582529_3722beec.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1528359557811_f4fabb86.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1528359557832_f9575c32.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1528359572669_cbf6ccf8.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1528359957275_90e1bc2f.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1528359957362_e4bc91bf.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1531280437929_09063d9b.jpg，\t[{”addTime”:1537428389919，”size”:”22.56M”，”name”:”【易拉宝】小米8__80x180.jpg”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1527761723932_f8960e25.jpg”}，{”addTime”:1537428389919，”size”:”26.67M”，”name”:”【海报】小米8_57x84.jpg”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1527761724157_88697a02.jpg”}，{”addTime”:1537428389919，”size”:”2.36M”，”name”:”【价签】小米8.ai”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1527765953120_0214344a.ai”}，{”addTime”:1537428389919，”size”:”2.07M”，”name”:”【价签】小米8SE.ai”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1527765953102_45ba8231.ai”}，{”addTime”:1537428389919，”size”:”362.37M”，”name”:”【视频】小米8.zip”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1527765983478_ca1998a9.zip”}，{”addTime”:1537428389920，”size”:”46.66M”，”name”:”【易拉宝】小米8_代言人_80x180.jpg”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1528359603324_a90194ef.jpg”}，{”addTime”:1537428389920，”size”:”50.54M”，”name”:”【海报】小米8_代言人_57x84.jpg”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1528359604331_4664c6ee.jpg”}，{”addTime”:1537428389920，”size”:”6.18M”，”name”:”【三折页】小米8_背面.jpg”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1529053990205_084aa0e1.jpg”}，{”addTime”:1537428389920，”size”:”4.63M”，”name”:”【三折页】小米8_正面.jpg”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1529053990198_1d351e7d.jpg”}，{”addTime”:1537428389920，”size”:”184.3M”，”name”:”【灯箱】小米8.pdf”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1529981347790_89252a1e.pdf”}，{”addTime”:1537428389920，”size”:”557.08M”，”name”:”【灯箱】小米8_代言人.pdf”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1529981369080_9b3abf40.pdf”}，{”addTime”:1537428471020，”size”:”4.31M”，”name”:”【传单】小米8_A5_正面.jpg”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1537428472282_1df0ef0b.jpg”}，{”addTime”:1537428483630，”size”:”17.38M”，”name”:”【传单】小米8_A5_背面.jpg”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1537428483758_39d1bf60.jpg”}]\t1527761955349\t1537428496588\t1\t1\t传单、海报、易拉宝、灯箱、视频、价签、三折页\t1\n" +
+//                "132\t小米手环3\t，11，14，\t\thttps://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1527821004465_c72a555d.jpg，\t[{”name”:”【视频】小米手环3.mp4”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1527820987600_cddaa801.mp4”，”addTime”:1527821031428，”size”:”19.24M”}，{”name”:”【价签】小米手环3.ai”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1527821055426_3d944d6f.ai”，”addTime”:1527821054942，”size”:”1.78M”}]\t1527766654522\t1527821057396\t1\t1\t视频，价签\t1\n" +
+//                "133\t小米电视4\t，11，14，\t\t\t[{”name”:”【视频】小米电视4.zip”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1527821161924_64f31d90.zip”，”addTime”:1527821165246，”size”:”111.11M”}]\t1527766815595\t1527821172047\t1\t1\t视频\t1\n" +
+//                "134\t物料中心指引及购买方式\t，13，14，\t\thttps://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1530073804773_644a1502.png，\t[{”name”:”物料中心用户指引.PDF”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1530072273286_9a6463d7.pdf”，”addTime”:1530073788653，”size”:”2.14M”}]\t1528856892733\t1530073820320\t1\t1\t官方推荐物料供应商\t1\n" +
+//                "135\t红米6\t，10，14，\thttps://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1528890169987_bd909573.jpeg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1528890169990_bc1e8516.jpeg，\thttps://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1528888780717_12849867.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1528888780715_649943c2.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1528888780751_ec77e87e.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1528888780759_1f7e9ed8.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1528888804544_38f3b50f.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1529570194967_074ee485.jpg，\t[{”name”:”【海报】红米6_男_57x84.jpg”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1528888827967_99ba5d64.jpg”，”addTime”:1529570173019，”size”:”39.6M”}，{”name”:”【海报】红米6_女_57x84.jpg”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1528888873790_dd5ad5db.jpg”，”addTime”:1529570173019，”size”:”35.44M”}，{”name”:”【灯箱】红米6_女.pdf”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1528889981544_c8fc58c1.pdf”，”addTime”:1529570173019，”size”:”269.72M”}，{”name”:”【灯箱】小米6_男.pdf”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1528890002683_4984c721.pdf”，”addTime”:1529570173019，”size”:”527.54M”}，{”name”:”【价签】红米6.jpg”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1528890040431_9bc5bf52.jpg”，”addTime”:1529570173020，”size”:”1.23M”}，{”name”:”【视频】红米6.mp4”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1528890568533_4ddf7d17.mp4”，”addTime”:1529570173020，”size”:”716.18K”}，{”name”:”【三折页】红米6_正面.jpg”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1529570186401_f8ed387e.jpg”，”addTime”:1529570186910，”size”:”5.34M”}，{”name”:”【三折页】红米6_背面.jpg”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1529570186398_eb2150c7.jpg”，”addTime”:1529570187004，”size”:”5.87M”}]\t1528890055988\t1529570213660\t1\t1\t海报、灯箱、价签、视频、三折页\t1\n" +
+//                "136\t红米6 Pro\t，10，14，\thttps://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1529911467180_fb7e559e.jpeg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1529982308191_317e9801.jpeg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1529982308196_1167dbae.jpeg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1530693847523_70661aa4.jpeg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1530693847538_7e617d30.jpeg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1530693847534_d908e775.jpeg，\thttps://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1529920722366_7d8c5a9c.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1529920733665_06369702.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1530096571998_e5caf480.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1530096585331_16d02291.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1530096590269_d4c58c54.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1531280382312_4411cff3.jpg，\t[{”name”:”【海报】红米6pro_57x84.jpg”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1529920751817_04fd6b80.jpg”，”addTime”:1531280547331，”size”:”34.01M”}，{”name”:”【灯箱】红米6pro.eps”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1529920773407_f50d3e2c.eps”，”addTime”:1531280547331，”size”:”213.64M”}，{”name”:”【价签】红米6pro.jpg”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1530096601521_8f03e9e5.jpg”，”addTime”:1531280547332，”size”:”1.36M”}，{”name”:”【三折页】红米6pro_正面.jpg”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1531280584067_8b8b330b.jpg”，”addTime”:1531280584459，”size”:”3.75M”}，{”name”:”【三折页】红米6pro_背面.jpg”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1531280588840_be26c558.jpg”，”addTime”:1531280589431，”size”:”6.66M”}]\t1529911630211\t1531280595776\t1\t1\t海报、灯箱、价签、三折页\t1\n" +
+//                "137\t小米平板4\t，11，14，\thttps://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1530155725136_cae3e464.jpeg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1530155725134_60ec6861.jpeg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1530155725163_2084747e.jpeg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1530155725164_658bc485.jpeg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1530155725168_fa1f7d8e.jpeg，\thttps://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1530155814247_117ade15.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1530155818693_b22646ca.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1530155822823_43b5060d.jpg，\t[{”name”:”【价签】小米平板4.jpg”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1530155743593_3ddfd913.jpg”，”addTime”:1530155750843，”size”:”1.39M”}，{”name”:”【价签】小米平板4.eps”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1530155743629_2bfa8caa.eps”，”addTime”:1530155751145，”size”:”4.92M”}]\t1530155833606\t1530155833606\t1\t1\t价签\t1\n" +
+//                "138\t小米直供点店外侧招灯箱规范\t，13，14，\t\thttps://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1531124901361_b971c57a.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1531124901362_07927042.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1531128356077_e90eb86c.png，\t[{”name”:”gothambook.otf”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1531124864988_0260f71c.otf”，”addTime”:1531204903573，”size”:”32.57K”}，{”name”:”店外侧招灯箱.eps”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1531128306960_def6ece5.eps”，”addTime”:1531204903574，”size”:”6.84M”}，{”name”:”小米直供点侧招灯箱规范v1.2.pdf”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1531204913040_c48a6645.2.pdf”，”addTime”:1531204913495，”size”:”3.47M”}]\t1531125095161\t1531204915820\t1\t1\t小米直供点店外侧招灯箱和悬挂灯箱\t1\n" +
+//                "139\t黑鲨游戏手机\t，10，14，\thttps://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1531449099655_320191ba.png，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1531449104193_cf547739.png，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1531449107893_92b3bb9c.png，\thttps://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1531446723435_7d4f476b.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1531978466700_f8a2d187.jpg，\t[{”name”:”海报物料.jpg”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1531446735715_93cb4494.jpg”，”addTime”:1531978240392，”size”:”1.26M”}，{”name”:”海报物料.psd”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1531446826693_4d0c2f08.psd”，”addTime”:1531978240392，”size”:”596.96M”}，{”name”:”展板a4.jpg”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1531446863444_d2bc175d.jpg”，”addTime”:1531978240392，”size”:”485.66K”}，{”name”:”展板a4.psd”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1531446932407_a992c1a6.psd”，”addTime”:1531978240393，”size”:”389.35M”}，{”name”:”展架80x200.jpg”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1531447207112_47db3bf5.jpg”，”addTime”:1531978240393，”size”:”1.07M”}，{”name”:”黑鲨吃鸡短视频.mp4”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1531449121866_b3b56f08.mp4”，”addTime”:1531978240393，”size”:”2.24M”}，{”name”:”黑鲨吃鸡短视频02.mp4”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1531449125840_6072cf05.mp4”，”addTime”:1531978240393，”size”:”2.43M”}，{”name”:”黑鲨王者荣耀.mp4”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1531449130004_2f443260.mp4”，”addTime”:1531978240393，”size”:”1.92M”}，{”name”:”黑鲨手机三折页.eps”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1531979177629_59c3c939.eps”，”addTime”:1531979200149，”size”:”294.32M”}]\t1531447601878\t1531979276711\t1\t1\t海报、展板、易拉宝、微信分享图\t1\n" +
+//                "140\t小米Max3\t，10，14，\thttps://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1531712427967_77197a8e.jpeg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1531712427959_7ea7b8ad.jpeg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1531712427964_6d5318ac.jpeg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1531824134391_fc6da9ee.jpeg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1531824134386_871ce497.jpeg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1532055805872_17dd1fa3.jpeg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1532055805946_42529b10.jpeg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1532055805946_a2a64f42.jpeg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1532055810062_ca5195c3.jpeg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1532056142812_1e8db9d4.jpeg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1532056142808_f87b502d.jpeg，\thttps://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1531968819149_d74db8c9.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1531968823643_e62a92bb.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1531968827807_820f6e4f.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1532501307872_ed2c0987.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1532501314216_7a2a1307.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1533112118119_bafc3b6f.jpg，\t[{”name”:”【易拉宝】小米Max3_80x180.jpg”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1531968853855_e5c84e03.jpg”，”addTime”:1533112103000，”size”:”24.64M”}，{”name”:”【海报】小米Max3_57x84.jpg”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1531968853604_436d2301.jpg”，”addTime”:1533112103001，”size”:”31.28M”}，{”name”:”【灯箱】小米Max3.pdf”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1531968864114_ee3a76c7.pdf”，”addTime”:1533112103001，”size”:”138.04M”}，{”name”:”【视频】小米Max3 爆笑预热视频第一集.mp4”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1531968928606_b3428b05.mp4”，”addTime”:1533112103001，”size”:”2.2M”}，{”name”:”【视频】小米Max3 爆笑预热视频第二集.mp4”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1531968928661_2fe2e2f9.mp4”，”addTime”:1533112103001，”size”:”6.32M”}，{”name”:”【视频】小米Max 系列大屏用户的故事.mp4”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1531969588836_0f2a9f48.mp4”，”addTime”:1533112103001，”size”:”2.9M”}，{”name”:”【视频】续航对比测试视频2.mp4”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1532067551396_a88c5cc8.mp4”，”addTime”:1533112103001，”size”:”30.18M”}，{”name”:”【视频】产品设计理念视频2.mp4”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1532067551718_64496286.mp4”，”addTime”:1533112103001，”size”:”44.19M”}，{”name”:”【视频】插口袋视频final.mp4”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1532067551149_17c278b7.mp4”，”addTime”:1533112103001，”size”:”17.31M”}，{”name”:”【价签】小米Max3.jpg”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1532501294639_9e79ef92.jpg”，”addTime”:1533112103001，”size”:”1.16M”}，{”name”:”【三折页】小米Max3_正面.jpg”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1533111915566_01f96d09.jpg”，”addTime”:1533112103002，”size”:”3.67M”}，{”name”:”【三折页】小米Max3_背面.jpg”，”url”:”https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/wuliao/1533111924817_1f1509fe.jpg”，”addTime”:1533112103002，”size”:”9.45M”}]\t1531712494527\t1533112126361\t1\t1\t海报、易拉宝、灯箱、视频、价签、三折页\t1\n" +
+//                "141\t小米8青春版\t，10，14，\t\thttps://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1537352250611_db59a955.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1537352250560_112d899a.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1537352250574_0d2acf00.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1537352250765_639c91d7.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1537352513657_6808be69.jpg，https://cdn.cnbj1.fds.api.mi-img.com/mici-zhigong/img/1537352523413_efdafb5f.jpg，\t\t1537353128919\t1537414576149\t1\t1\t传单、海报、易拉宝、视频、灯箱\t1\n";
 
-        Set<String> skus = Sets.newHashSet(); skus.addAll(Splitter.on("\n").trimResults().omitEmptyStrings().splitToList(a));
-
-
-
-        String jsong = list.get(0);
-
-        Gson gson = new Gson();
-
-
-        Map<String,Object> map = gson.fromJson(jsong,new TypeToken<Map<String,Object>>(){}.getType());
-
-        List<LinkedTreeMap<String,Object>> dataList = (List<LinkedTreeMap<String,Object>>)map.get("data");
-        List<String> data1 = Lists.newArrayList();
-        List<String> data2 = Lists.newArrayList();
-
-        Map<String,A> map1 = Maps.newHashMap();
-
-        for(Map<String,Object> temp : dataList){
-//            if(StringUtils.isEmpty(String.valueOf(temp.get("cat_name")))){
-//                data1.add(String.valueOf(temp.get("goods_id")));
-//                continue;
-//            }
-//            if(StringUtils.isEmpty(String.valueOf(temp.get("type5_name"))) && !"生态链".equals(String.valueOf(temp.get("cat_name")))){
-//                data2.add(String.valueOf(temp.get("goods_id")));
-//                continue;
-//            }
-
-//            if(temp.get("goods_id").equals("17245") || String.valueOf(temp.get("goods_id")).startsWith("17245") || String.valueOf(temp.get("goods_id")).endsWith("17245")){
-//                System.out.println(temp.get("goods_id") + "-");
-//            }
-
-                map1.put(String.valueOf(temp.get("goods_id")),new A(
-                        Long.valueOf(String.valueOf(temp.get("goods_id"))),
-                        Long.valueOf(String.valueOf(temp.get("cat_id"))),
-                        String.valueOf(String.valueOf(temp.get("cat_name"))),
-                        Long.valueOf(String.valueOf(temp.get("type1_id"))),
-                        String.valueOf(temp.get("type1_name")),
-                        Long.valueOf(String.valueOf(temp.get("type2_id"))),
-                        String.valueOf(temp.get("type2_name")),
-                        Long.valueOf(String.valueOf(temp.get("type3_id"))),
-                        String.valueOf(temp.get("type3_name")),
-                        Long.valueOf(String.valueOf(temp.get("type4_id"))),
-                        String.valueOf(temp.get("type4_name")),
-                        Long.valueOf(String.valueOf(temp.get("type5_id"))),
-                        String.valueOf(temp.get("type5_name"))));
-
-        }
+//        Set<String> skus = Sets.newHashSet(); skus.addAll(Splitter.on("\n").trimResults().omitEmptyStrings().splitToList(a));
+//
+//
+//
+//        String jsong = list.get(0);
+//
+//        Gson gson = new Gson();
+//
+//
+//        Map<String,Object> map = gson.fromJson(jsong,new TypeToken<Map<String,Object>>(){}.getType());
+//
+//        List<LinkedTreeMap<String,Object>> dataList = (List<LinkedTreeMap<String,Object>>)map.get("data");
+//        List<String> data1 = Lists.newArrayList();
+//        List<String> data2 = Lists.newArrayList();
+//
+//        Map<String,A> map1 = Maps.newHashMap();
+//
+//        for(Map<String,Object> temp : dataList){
+////            if(StringUtils.isEmpty(String.valueOf(temp.get("cat_name")))){
+////                data1.add(String.valueOf(temp.get("goods_id")));
+////                continue;
+////            }
+////            if(StringUtils.isEmpty(String.valueOf(temp.get("type5_name"))) && !"生态链".equals(String.valueOf(temp.get("cat_name")))){
+////                data2.add(String.valueOf(temp.get("goods_id")));
+////                continue;
+////            }
+//
+////            if(temp.get("goods_id").equals("17245") || String.valueOf(temp.get("goods_id")).startsWith("17245") || String.valueOf(temp.get("goods_id")).endsWith("17245")){
+////                System.out.println(temp.get("goods_id") + "-");
+////            }
+//
+//                map1.put(String.valueOf(temp.get("goods_id")),new A(
+//                        Long.valueOf(String.valueOf(temp.get("goods_id"))),
+//                        Long.valueOf(String.valueOf(temp.get("cat_id"))),
+//                        String.valueOf(String.valueOf(temp.get("cat_name"))),
+//                        Long.valueOf(String.valueOf(temp.get("type1_id"))),
+//                        String.valueOf(temp.get("type1_name")),
+//                        Long.valueOf(String.valueOf(temp.get("type2_id"))),
+//                        String.valueOf(temp.get("type2_name")),
+//                        Long.valueOf(String.valueOf(temp.get("type3_id"))),
+//                        String.valueOf(temp.get("type3_name")),
+//                        Long.valueOf(String.valueOf(temp.get("type4_id"))),
+//                        String.valueOf(temp.get("type4_name")),
+//                        Long.valueOf(String.valueOf(temp.get("type5_id"))),
+//                        String.valueOf(temp.get("type5_name"))));
+//
+//        }
 
 //        for(String sku : skus){
 //            for(Map<String,Object> temp : dataList){
@@ -1022,45 +184,77 @@ public class FilesTest {
 //        out.close();
 
 
-        String insert = "insert into `goods_types`(sku,type_level0_id,type_level0_name,type_level1_id,type_level1_name,type_level2_id,type_level2_name,type_level3_id,type_level3_name,type_level4_id,type_level4_name,type_level5_id,type_level5_name) value(%s,%s,\'%s\',%s,\'%s\',%s,\'%s\',%s,\'%s\',%s,\'%s\',%s,\'%s\'); ";
+        //String insert = "insert into `materials_type`(id,name,img,sort,show_status,channel_scope) value(%s,\'%s\',\'%s\',%s,%s,%s); ";
 
-        String update = "UPDATE goods " +
-                "SET type_level0_id = %s , " +
-                "    type_level0_name = \'%s\'," +
-                "    type_level1_id = %s , " +
-                "    type_level1_name = \'%s\'," +
-                "    type_level2_id = %s," +
-                "    type_level2_name = \'%s\'," +
-                "    type_level3_id = %s," +
-                "    type_level3_name = \'%s\'," +
-                "    type_level4_id = %s," +
-                "    type_level4_name = \'%s\'," +
-                "    type_level5_id = %s," +
-                "    type_level5_name = \'%s\'" +
-                "    WHERE sku = %s;";
+        String insert = "insert into `materials`(name,types,imgs2,description,files,added_Time,modify_time,show_status,shelve_status,remark,channel_scope) value(\'%s\',\'%s\',\'%s\',\'%s\',\'%s\',%s,%s,%s,%s,\'%s\',%s); ";
+
+//        String update = "UPDATE goods " +
+//                "SET type_level0_id = %s , " +
+//                "    type_level0_name = \'%s\'," +
+//                "    type_level1_id = %s , " +
+//                "    type_level1_name = \'%s\'," +
+//                "    type_level2_id = %s," +
+//                "    type_level2_name = \'%s\'," +
+//                "    type_level3_id = %s," +
+//                "    type_level3_name = \'%s\'," +
+//                "    type_level4_id = %s," +
+//                "    type_level4_name = \'%s\'," +
+//                "    type_level5_id = %s," +
+//                "    type_level5_name = \'%s\'" +
+//                "    WHERE sku = %s;";
 
         List<String> updateS = Lists.newArrayList();
+
+
 
         int i = 0;
 
         int j = 0;
-        for(String key : map1.keySet()){
-            A bean = map1.get(key);
-            if(skus.contains(key)){
-                i++;
-            }else{
-                j++;
-                updateS.add(String.format(insert,bean.getSku(),bean.getType0_id(),bean.getType0_name(),bean.getType1_id(),bean.getType1_name(),bean.getType2_id(),bean.getType2_name(),bean.getType3_id(),bean.getType3_name(),bean.getType4_id(),bean.getType4_name(),bean.getType5_id(),bean.getType5_name()));
+//        for(String key : map1.keySet()){
+//            A bean = map1.get(key);
+//            if(skus.contains(key)){
+//                i++;
+//            }else{
+//                j++;
+//                updateS.add(String.format(insert,bean.getSku(),bean.getType0_id(),bean.getType0_name(),bean.getType1_id(),bean.getType1_name(),bean.getType2_id(),bean.getType2_name(),bean.getType3_id(),bean.getType3_name(),bean.getType4_id(),bean.getType4_name(),bean.getType5_id(),bean.getType5_name()));
+//            }
+//        }
+
+        Map<String,String> tpyeMap = Maps.newHashMap(new HashMap<String,String>(){{
+            put("10","15");
+            put("11","16");
+            put("12","17");
+            put("13","18");
+            put("14","19");
+        }});
+
+
+        for(i = 0; i < list.size(); i++ ){
+            String temp = list.get(i).replace("，",",").replace("”","\"");
+            List<String> tempStr = Splitter.on("\t").splitToList(temp);
+            List<String> tempTypes = Splitter.on(",").trimResults().omitEmptyStrings().omitEmptyStrings().splitToList(tempStr.get(2));
+            List<String> tempTypes1 = Lists.newArrayList();
+            String typesStr = ",";
+            for(String tempType : tempTypes){
+                if(null != tpyeMap.get(tempType)){
+                    typesStr +=tpyeMap.get(tempType) + ",";
+                }else{
+
+                    System.out.println("未找到的类型：" + tempType );
+                }
             }
+            updateS.add(String.format(insert,tempStr.get(1),typesStr,tempStr.get(3),tempStr.get(4),tempStr.get(5),tempStr.get(6),tempStr.get(7),tempStr.get(8),tempStr.get(9),tempStr.get(10),"10"));
+            System.out.println(String.format(insert,tempStr.get(1),typesStr,tempStr.get(3),tempStr.get(4),tempStr.get(5),tempStr.get(6),tempStr.get(7),tempStr.get(8),tempStr.get(9),tempStr.get(10),"10"));
         }
+
+
+
 
 
         System.out.println(i);
         System.out.println(j);
 
-        File file = new File("D:\\文档\\insertGoodsType.txt");
-
-        j = 0;
+        File file = new File("D:\\文档\\insertMaterials.txt");
         FileOutputStream out = new FileOutputStream(file);
         for(String updateStr : updateS) {
             j++;
