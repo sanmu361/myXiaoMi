@@ -1,5 +1,8 @@
 package com.sanmu.myXiaoMi.netty;
 
+import com.sanmu.myXiaoMi.netty.kryo.KryoDecoder;
+import com.sanmu.myXiaoMi.netty.kryo.KryoEncoder;
+import com.sanmu.myXiaoMi.netty.kryo.KryoSerializer;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -27,8 +30,11 @@ public class SubReqClient {
                     .handler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel socketChannel) throws Exception {
-                            socketChannel.pipeline().addLast(MarshallingCodeCFactory.buildMarshallingDecoder());
-                            socketChannel.pipeline().addLast(MarshallingCodeCFactory.buildMarshallingEncoder());
+                            socketChannel.pipeline().addLast(new KryoDecoder());
+                            socketChannel.pipeline().addLast(new KryoEncoder());
+//                            socketChannel.pipeline().addLast(MarshallingCodeCFactory.buildMarshallingDecoder());
+//                            socketChannel.pipeline().addLast(MarshallingCodeCFactory.buildMarshallingEncoder());
+                            socketChannel.pipeline().addLast(new SubReqClientHandler());
                         }
                     });
             ChannelFuture f = b.connect(host,port).sync();

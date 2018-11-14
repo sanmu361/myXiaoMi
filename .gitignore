@@ -30,3 +30,11 @@ target/classes/log4j.properties
 target/classes/logback.xml
 target/generated-sources/
 target/generated-test-sources/
+.idea/libraries/Maven__com_alibaba_dubbo_2_6_2.xml
+.idea/libraries/Maven__org_javassist_javassist_3_20_0_GA.xml
+.idea/libraries/Maven__org_springframework_spring_aop_4_3_16_RELEASE.xml
+.idea/libraries/Maven__org_springframework_spring_beans_4_3_16_RELEASE.xml
+.idea/libraries/Maven__org_springframework_spring_context_4_3_16_RELEASE.xml
+.idea/libraries/Maven__org_springframework_spring_core_4_3_16_RELEASE.xml
+.idea/libraries/Maven__org_springframework_spring_expression_4_3_16_RELEASE.xml
+src/com/sanmu/photograph/
