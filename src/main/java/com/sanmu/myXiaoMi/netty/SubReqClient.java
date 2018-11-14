@@ -29,7 +29,6 @@ public class SubReqClient {
                         protected void initChannel(SocketChannel socketChannel) throws Exception {
                             socketChannel.pipeline().addLast(MarshallingCodeCFactory.buildMarshallingDecoder());
                             socketChannel.pipeline().addLast(MarshallingCodeCFactory.buildMarshallingEncoder());
-                            socketChannel.pipeline().addLast(new SubReqClientHandler());
                         }
                     });
             ChannelFuture f = b.connect(host,port).sync();
