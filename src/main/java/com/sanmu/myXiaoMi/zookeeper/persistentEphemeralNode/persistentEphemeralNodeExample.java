@@ -9,6 +9,8 @@ import org.apache.curator.framework.state.ConnectionStateListener;
 import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.apache.curator.utils.CloseableUtils;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -23,6 +25,10 @@ public class persistentEphemeralNodeExample {
     private static final String PATH2 = "/example/node";
 
     public static void main(String[] args) throws Exception {
+
+        Set<Integer> set = new HashSet<>();
+
+
 
         CuratorFramework client = null;
         PersistentEphemeralNode node = null;
