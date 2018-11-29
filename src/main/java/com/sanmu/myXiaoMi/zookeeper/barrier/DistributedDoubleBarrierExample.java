@@ -11,7 +11,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 /**
- * ${DESCRIPTION}
+ * $双屏障
+ *到enter阻塞，所有的线程enter后开始执行，到leave阻塞，所有leave后跳出
  *
  * @author yansen
  * @create 2018-08-09 17:40

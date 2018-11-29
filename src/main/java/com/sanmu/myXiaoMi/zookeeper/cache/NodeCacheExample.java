@@ -25,15 +25,18 @@ public class NodeCacheExample {
         CuratorFramework client = null;
         NodeCache cache = null;
 
-        client = CuratorFrameworkFactory.newClient("192.168.181.127:2181,192.168.181.128:2181,192.168.181.129:2181",new ExponentialBackoffRetry(1000,3));
+        try{
+            client = CuratorFrameworkFactory.newClient("192.168.181.127:2181,192.168.181.128:2181,192.168.181.129:2181",new ExponentialBackoffRetry(1000,3));
 
-        client.start();
+            client.start();
 
-        cache = new NodeCache(client,PATH);
-
-        cache.start();
-
-
+            cache = new NodeCache(client,PATH);
+            cache.start();
+            processCommands(client, cache);
+        }finally {
+            cache.close();
+            client.close();
+        }
 
     }
 

@@ -11,7 +11,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 /**
- * ${DESCRIPTION}
+ * $屏障
+ * 阻塞所有节点上的等待进程直到某一个被满足，所有节点继续进行
  *
  * @author yansen
  * @create 2018-08-09 17:38

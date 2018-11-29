@@ -27,21 +27,21 @@ public class ClientTest {
                 .sessionTimeoutMs(1000 * 6)
                 .retryPolicy(retryPolicy).build();
         client.start();
-        try {
+//        try {
 //            client.create().creatingParentsIfNeeded().withMode(CreateMode.PERSISTENT).forPath("/super","c1内容".getBytes());
-            client.delete().guaranteed().deletingChildrenIfNeeded().forPath("/super");
-            String ret1 = new String(client.getData().forPath("/super"));
-
-            System.out.println(ret1);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//            client.delete().guaranteed().deletingChildrenIfNeeded().forPath("/super");
+//            String ret1 = new String(client.getData().forPath("/super"));
+//
+//            System.out.println(ret1);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
 
 //        // 新加、删除
 //
 //         //4 建立节点 指定节点类型（不加withMode默认为持久类型节点）、路径、数据内容
-//        client.create().creatingParentsIfNeeded().withMode(CreateMode.PERSISTENT).forPath("/super/c1","c1内容".getBytes());
+        //client.create().creatingParentsIfNeeded().withMode(CreateMode.PERSISTENT).forPath("/super/c1","c1内容".getBytes());
 //         //5 删除节点
 //        client.delete().guaranteed().deletingChildrenIfNeeded().forPath("/super");
 //
@@ -93,6 +93,8 @@ public class ClientTest {
         //cf.delete().guaranteed().deletingChildrenIfNeeded().forPath("/super");
 
 
+        String ret1 = new String(client.getData().forPath("/super/c1"));
+        System.out.println(ret1);
         System.out.println("zk operation");
         client.close();
 
