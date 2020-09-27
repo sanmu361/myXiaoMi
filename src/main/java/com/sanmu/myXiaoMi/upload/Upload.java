@@ -31,8 +31,8 @@ import java.util.concurrent.Future;
  **/
 public class Upload {
 
-    private static final String APP_ACCESS_KEY = "AKF2Q26HBIXMSZ3KZX";
-    private static final String APP_ACCESS_SECRET = "Ha6c4aVK9AIqRZBxns1yz5avoBwEH7JqxDBQ5G2y";
+    private static final String APP_ACCESS_KEY = "";
+    private static final String APP_ACCESS_SECRET = "";
 
     private static final String BUCKET_NAME = "mici-zhigong";
 
@@ -47,7 +47,7 @@ public class Upload {
 
     public static void main(String args[]) throws Exception {
 
-        String filePathName = "小米5x_全部文件.zip";
+        String filePathName = "_全部文件.zip";
         String sub = filePathName.substring(filePathName.lastIndexOf("."));
         final String fileName = "wuliao/" + System.currentTimeMillis() + "_" + UUID.randomUUID().toString().substring(0, 8) + sub;
 
@@ -58,7 +58,7 @@ public class Upload {
                 APP_ACCESS_KEY, APP_ACCESS_SECRET);
 
         // Construct the GalaxyFDSClient object.
-        FDSClientConfiguration fdsConfig = new FDSClientConfiguration("cnbj1.fds.api.xiaomi.com",true);
+        FDSClientConfiguration fdsConfig = new FDSClientConfiguration("",true);
         fdsConfig.enableCdnForUpload(false);
         fdsConfig.enableCdnForDownload(true);
         final GalaxyFDSClient fdsClient = new GalaxyFDSClient(credential, fdsConfig);
@@ -116,7 +116,7 @@ public class Upload {
         fdsClient.setPublic(BUCKET_NAME,fileName);
 
         System.out.println("文件名：" + filePathName);
-        System.out.println("链接：" + "https://cnbj1.fds.api.xiaomi.com/mici-zhigong/" + fileName);
+        System.out.println("链接：" + "" + fileName);
         System.out.println("文件大小:" + getSize(fileLength));
 
     }
